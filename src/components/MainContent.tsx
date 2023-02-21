@@ -1,4 +1,4 @@
-import './ExploreContainer.css';
+import './MainContent.css';
 import {
   IonCard,
   IonCardContent,
