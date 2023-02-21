@@ -1,0 +1,7 @@
+{
+  "name": "tca-farkle",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
