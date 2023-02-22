@@ -18,7 +18,7 @@ export const Home: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonTitle size="large">Farkle Companion App</IonTitle>
           </IonToolbar>
         </IonHeader>
         <MainContent/>

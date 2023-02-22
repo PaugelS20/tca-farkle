@@ -27,3 +27,10 @@ ion-card-header.ios {
   display: flex;
   flex-flow: column-reverse;
 }
+.container {
+	display: flex;
+	flex-direction: column;
+}
+#startGameButton {
+	align-self: center;
+}
