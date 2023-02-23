@@ -8,8 +8,12 @@ import {
   IonCardTitle,
   IonCol,
   IonGrid,
+  IonNavLink,
   IonRow,
 } from '@ionic/react';
+import { Setup } from "../pages";
+
+// const nav = useNavigate();
 
 interface ContainerProps { }
 
@@ -64,53 +68,57 @@ export const MainContent: React.FC<ContainerProps> = () => {
         </IonRow>
 
 
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>Fun Fact 4</IonCardTitle>
-          <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-        </IonCardHeader>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Fun Fact 4</IonCardTitle>
+            <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+          </IonCardHeader>
 
-        <IonCardContent>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </IonCardContent>
-      </IonCard>
+          <IonCardContent>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </IonCardContent>
+        </IonCard>
 
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>Fun Fact 5</IonCardTitle>
-          <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-        </IonCardHeader>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Fun Fact 5</IonCardTitle>
+            <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+          </IonCardHeader>
 
-        <IonCardContent>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </IonCardContent>
-      </IonCard>
+          <IonCardContent>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </IonCardContent>
+        </IonCard>
 
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>Fun Fact 6</IonCardTitle>
-          <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-        </IonCardHeader>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Fun Fact 6</IonCardTitle>
+            <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+          </IonCardHeader>
 
-        <IonCardContent>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </IonCardContent>
-      </IonCard>
+          <IonCardContent>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </IonCardContent>
+        </IonCard>
 
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>Fun Fact 7</IonCardTitle>
-          <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-        </IonCardHeader>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Fun Fact 7</IonCardTitle>
+            <IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+          </IonCardHeader>
 
-        <IonCardContent>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </IonCardContent>
-      </IonCard>
+          <IonCardContent>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </IonCardContent>
+        </IonCard>
 
       </IonGrid>
 
-      <IonButton id='startGameButton' color="success">Start Game</IonButton>
+
+      <IonButton routerLink='/setup' id='startGameButton' color="success">Start Game</IonButton>
     </div>
   );
 };
+
+
+
