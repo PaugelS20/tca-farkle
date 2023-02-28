@@ -129,7 +129,6 @@ export const Home: React.FC = () => {
               <IonButton routerLink='/setup' id='startGameButton' color="success">Play Game</IonButton>
             </IonCol>
           </IonRow>
-
         </IonGrid>
 
 

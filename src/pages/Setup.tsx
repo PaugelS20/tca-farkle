@@ -8,6 +8,9 @@ import {
   IonGrid,
   IonCol,
   IonRow,
+  IonItem,
+  IonCheckbox,
+  IonLabel,
 } from '@ionic/react';
 
 export const Setup: React.FC = () => {
@@ -24,7 +27,11 @@ export const Setup: React.FC = () => {
           <IonRow>
             <IonCol>
               <h2>Setup</h2>
-              <p>some setup stuff goes here</p>
+              <p>Select who's playing or add someone new</p>
+              <IonItem>
+                <IonCheckbox slot="start"></IonCheckbox>
+                <IonLabel>Sam</IonLabel>
+              </IonItem>
               <IonButton routerLink='/play' color="success">Start Game</IonButton>
             </IonCol>
           </IonRow>
