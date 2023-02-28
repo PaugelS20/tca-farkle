@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import {
   IonContent,
   IonHeader,
@@ -11,6 +12,8 @@ import {
 } from '@ionic/react';
 
 export const Play: React.FC = () => {
+  const h = useHistory();
+
   return (
     <IonPage>
       <IonHeader>
@@ -25,7 +28,10 @@ export const Play: React.FC = () => {
             <IonCol>
               <h2>Play</h2>
               <p>some data collection stuff goes here</p>
-              <IonButton routerLink='/home' color="danger">End Game</IonButton>
+              <IonButton onClick={(e) => {
+                        h.goBack();
+                        h.goBack();
+                    }} color="danger">End Game</IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
