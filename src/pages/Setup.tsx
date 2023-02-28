@@ -1,12 +1,37 @@
-import { IonButton, IonNavLink } from '@ionic/react';
-import { Play } from '../pages';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonGrid,
+  IonCol,
+  IonRow,
+} from '@ionic/react';
 
 export const Setup: React.FC = () => {
   return (
-    <>
-      <h2>Setup</h2>
-      <p>some setup stuff goes here</p>
-      {/* <IonButton onClick={() => nav("/setup")} id='startGameButton' color="success">Start Game</IonButton> */}
-    </>
-  )
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Farkle Companion App</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent fullscreen>
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <h2>Setup</h2>
+              <p>some setup stuff goes here</p>
+              <IonButton routerLink='/play' color="success">Start Game</IonButton>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+
+
+      </IonContent>
+    </IonPage>
+  );
 };
