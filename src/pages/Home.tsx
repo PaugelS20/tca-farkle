@@ -14,8 +14,9 @@ import {
   IonGrid,
   IonCol,
   IonRow,
+  IonNav,
 } from '@ionic/react';
-import { MainContent } from '../components/MainContent';
+// import { MainContent } from '../components/MainContent';
 import { MainHeader } from '../components/index';
 import './Home.css';
 
@@ -29,7 +30,7 @@ export const Home: React.FC = () => {
 
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Farkle Companion App</IonTitle>
+            <IonTitle  size="small">Farkle Companion App</IonTitle>
           </IonToolbar>
         </IonHeader>
 
@@ -130,8 +131,6 @@ export const Home: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
-
-
         {/* <MainContent /> */}
       </IonContent>
     </IonPage>

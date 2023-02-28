@@ -11,9 +11,22 @@ import {
   IonItem,
   IonCheckbox,
   IonLabel,
+  IonList,
+  IonFab,
+  IonFabButton,
+  IonIcon,
+  IonText,
+  IonNavLink,
+  IonCard,
 } from '@ionic/react';
+import { add, personAddOutline } from 'ionicons/icons';
+import "./Setup.css"
 
 export const Setup: React.FC = () => {
+  const addNewPlayer = () => {
+    
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -23,16 +36,30 @@ export const Setup: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen>
+
         <IonGrid>
+
           <IonRow>
             <IonCol>
-              <h2>Setup</h2>
-              <p>Select who's playing or add someone new</p>
-              <IonItem>
-                <IonCheckbox slot="start"></IonCheckbox>
-                <IonLabel>Sam</IonLabel>
-              </IonItem>
-              <IonButton routerLink='/play' color="success">Start Game</IonButton>
+              <IonTitle id='setupTitle'>Setup</IonTitle>
+              <IonText id='setupText'>Select who's playing or add someone new</IonText>
+              <IonFabButton size="small" onClick={addNewPlayer}>
+                <IonIcon icon={personAddOutline}> Add New Player</IonIcon>
+              </IonFabButton>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol>
+              <IonList>
+                <IonItem>
+                  <IonCheckbox slot="start"></IonCheckbox>
+                  <IonLabel>Sam</IonLabel>
+                </IonItem>
+              </IonList>
+              <IonNavLink routerDirection="forward">
+                <IonButton routerLink='/play' color="success">Start Game</IonButton>
+              </IonNavLink>
             </IonCol>
           </IonRow>
         </IonGrid>
