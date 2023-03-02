@@ -63,12 +63,13 @@ const hardcodedGameResults: GameResult[] = [
 
 const App = () => {
   const [results, setGameResults] = useState(hardcodedGameResults);
-  const addGameResult =(r: GameResult) => {
-    setGameResults [
+  
+  const addGameResult = (r: GameResult) => {
+    setGameResults ([
       ...results
-      ,r
-    ]
-  }
+      , r
+    ]);
+  };
     
   return (
       <IonApp>
