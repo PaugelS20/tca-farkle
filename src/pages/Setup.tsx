@@ -24,7 +24,7 @@ import "./Setup.css"
 
 export const Setup: React.FC = () => {
   const addNewPlayer = () => {
-    
+
   }
 
   return (
@@ -44,7 +44,7 @@ export const Setup: React.FC = () => {
               <IonTitle id='setupTitle'>Setup</IonTitle>
               <IonText id='setupText'>Select who's playing or add someone new</IonText>
               <IonFabButton size="small" onClick={addNewPlayer}>
-                <IonIcon icon={personAddOutline}> Add New Player</IonIcon>
+                <IonIcon icon={personAddOutline}></IonIcon>
               </IonFabButton>
             </IonCol>
           </IonRow>
@@ -57,14 +57,17 @@ export const Setup: React.FC = () => {
                   <IonLabel>Sam</IonLabel>
                 </IonItem>
               </IonList>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol>
               <IonNavLink routerDirection="forward">
                 <IonButton routerLink='/play' color="success">Start Game</IonButton>
               </IonNavLink>
             </IonCol>
           </IonRow>
         </IonGrid>
-
-
       </IonContent>
     </IonPage>
   );
