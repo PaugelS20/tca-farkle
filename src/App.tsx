@@ -60,29 +60,38 @@ const hardcodedGameResults: GameResult[] = [
       , players: ["X", "Joe", "Jack"]
   }
 ];
-const [results, setGameResults] = useState(hardcodedGameResults);
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home leaderboardData={calculateLeaderboard(results)}/>
-        </Route>
+const App = () => {
+  const [results, setGameResults] = useState(hardcodedGameResults);
+  const addGameResult =(r: GameResult) => {
+    setGameResults [
+      ...results
+      ,r
+    ]
+  }
+    
+  return (
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <Home leaderboardData={calculateLeaderboard(results)}/>
+            </Route>
 
-        <Route exact path="/setup">
-          <Setup />
-        </Route>
+            <Route exact path="/setup">
+              <Setup />
+            </Route>
 
-        <Route exact path="/play">
-          <Play />
-        </Route>
+            <Route exact path="/play">
+              <Play addGameResultFunc={addGameResult}/>
+            </Route>
 
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+            {/* <Route exact path="/">
+              <Redirect to="/home" />
+            </Route> */}
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+  );
+};
 export default App;
