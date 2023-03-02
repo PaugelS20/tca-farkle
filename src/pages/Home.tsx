@@ -14,23 +14,36 @@ import {
   IonGrid,
   IonCol,
   IonRow,
-  IonNav,
+  IonItemGroup,
+  IonItemDivider,
+  IonItem,
+  IonLabel,
+  IonList,
 } from '@ionic/react';
 // import { MainContent } from '../components/MainContent';
 import { MainHeader } from '../components/index';
+import { LeaderboardPlayer } from '../front-end-model';
 import './Home.css';
 
-export const Home: React.FC = () => {
+interface HomeProps {
+  leaderboardData: LeaderboardPlayer[];
+};
+
+export const Home: React.FC<HomeProps> = ({ leaderboardData }) => {
+
+  console.log(leaderboardData);
+
+
   return (
     <IonPage>
 
       <MainHeader />
-      
+
       <IonContent fullscreen>
 
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle  size="small">Farkle Companion App</IonTitle>
+            <IonTitle size="small">Farkle Companion App</IonTitle>
           </IonToolbar>
         </IonHeader>
 
@@ -44,7 +57,64 @@ export const Home: React.FC = () => {
                 </IonCardHeader>
 
                 <IonCardContent>
-                  Here's a small text description for the card content. Nothing more, nothing less.
+                  {
+                    leaderboardData.length == 0 &&
+                    <p>Play a game to see your leaderboarder...</p>
+                  }
+                  {
+                    leaderboardData.length > 0 &&
+
+
+                    <IonList>
+                      <IonItemGroup>
+                        <IonItemDivider>
+                          <IonLabel>
+                            Section A
+                          </IonLabel>
+                        </IonItemDivider>
+
+                        <IonItem>
+                          <IonLabel>A1</IonLabel>
+                        </IonItem>
+                        <IonItem>
+                          <IonLabel>A2</IonLabel>
+                        </IonItem>
+                        <IonItem lines="none">
+                          <IonLabel>A3</IonLabel>
+                        </IonItem>
+                      </IonItemGroup>
+
+                      <IonItemGroup>
+                        <IonItemDivider>
+                          <IonLabel>
+                            Section B
+                          </IonLabel>
+                        </IonItemDivider>
+
+                        <IonItem>
+                          <IonLabel>B1</IonLabel>
+                        </IonItem>
+                        <IonItem>
+                          <IonLabel>B2</IonLabel>
+                        </IonItem>
+                        <IonItem lines="none">
+                          <IonLabel>B3</IonLabel>
+                        </IonItem>
+                      </IonItemGroup>
+                    </IonList>
+
+                  }
+                  {
+                    leaderboardData.map(x => (
+                      <tr>
+                        <td>{x.wins}</td>
+                        <td>{x.losses}</td>
+                        <td>{x.avg}</td>
+                        <td>{x.name}</td>
+                      </tr>
+                    ))
+                  }
+                  <tbody/>
                 </IonCardContent>
               </IonCard>
             </IonCol>
@@ -136,3 +206,4 @@ export const Home: React.FC = () => {
     </IonPage>
   );
 };
+

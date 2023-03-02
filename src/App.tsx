@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonNav, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Home, Setup, Play } from './pages';
+import { 
+  GameResult, 
+  calculateLeaderboard 
+} from './front-end-model';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,12 +29,45 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 setupIonicReact();
 
+
+const hardcodedGameResults: GameResult[] = [
+  {
+      winner: "Tom"
+      , players: ["Tom", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Jack", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Tom", "Taylor", "Jack"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Joe"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Jack"
+      , players: ["X", "Joe", "Jack"]
+  }
+];
+const [results, setGameResults] = useState(hardcodedGameResults);
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/home">
-          <Home />
+          <Home leaderboardData={calculateLeaderboard(results)}/>
         </Route>
 
         <Route exact path="/setup">

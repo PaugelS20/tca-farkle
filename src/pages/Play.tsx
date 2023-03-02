@@ -11,6 +11,11 @@ import {
   IonRow,
 } from '@ionic/react';
 
+// export const addGameResult: AddGameResultFunc = (results, result) => [
+//   ...results 
+//   , result
+// ];
+
 export const Play: React.FC = () => {
   const h = useHistory();
 
