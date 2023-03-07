@@ -106,19 +106,24 @@ export const Setup: React.FC<SetupProps> = ({
               <IonTitle id='setupTitle'>Setup</IonTitle>
               <IonText id='setupText'>Select who's playing or add someone new</IonText>
 
+              <IonList id='IonListandNewPlayerbutton'>
+                <IonItem
+                  id='newPlayerNameInput'
+                  fill="solid">
+                  <IonLabel position="floating">Add Player</IonLabel>
+                  <IonInput
+                    placeholder="Enter text"
+                    value={newPlayerName}
+                    onIonChange={(e: any) => setNewPlayerName(e.target.value)}
+                  >
+                  </IonInput>
+                </IonItem>
 
-              <IonItem fill="solid">
-                <IonLabel position="floating">Add Player</IonLabel>
-                <IonInput placeholder="Enter text"
-                  value={newPlayerName}
-                  onIonChange={(e: any) => setNewPlayerName(e.target.value)}
-                >
-                </IonInput>
-              </IonItem>
+                <IonFabButton size="small" onClick={validateAndAddNewPlayer}>
+                  <IonIcon icon={personAddOutline}></IonIcon>
+                </IonFabButton>
+              </IonList>
 
-              <IonFabButton size="small" onClick={validateAndAddNewPlayer}>
-                <IonIcon icon={personAddOutline}></IonIcon>
-              </IonFabButton>
 
             </IonCol>
           </IonRow>

@@ -2,9 +2,17 @@
 	padding-bottom: 1em;
 }
 #setupText {
-    padding: 1em;
+	padding: 1em;
 }
 #fabContainer {
-    margin-left: 20em;
-    margin-top: -1em;
+	margin-left: 20em;
+	margin-top: -1em;
+}
+#newPlayerNameInput {
+	margin: 1em 0em 1em 1em;
+	max-width: 15em;
+}
+#IonListandNewPlayerbutton {
+    display: flex;
+    align-items: center;
 }
