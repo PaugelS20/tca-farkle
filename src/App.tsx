@@ -5,7 +5,9 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Home, Setup, Play } from './pages';
 import { 
   GameResult, 
-  calculateLeaderboard 
+  calculateLeaderboard, 
+  SetupInfo,
+  getPreviousPlayers
 } from './front-end-model';
 
 
@@ -31,39 +33,45 @@ setupIonicReact();
 
 
 const hardcodedGameResults: GameResult[] = [
-  // {
-  //     winner: "Tom"
-  //     , players: ["Tom", "Taylor"]
-  // }
-  // , {
-  //     winner: "Taylor"
-  //     , players: ["Jack", "Taylor"]
-  // }
-  // , {
-  //     winner: "Taylor"
-  //     , players: ["Tom", "Taylor", "Jack"]
-  // }
-  // , {
-  //     winner: "X"
-  //     , players: ["X", "Joe"]
-  // }
-  // , {
-  //     winner: "X"
-  //     , players: ["X", "Joe"]
-  // }
-  // , {
-  //     winner: "Joe"
-  //     , players: ["X", "Joe"]
-  // }
-  // , {
-  //     winner: "Jack"
-  //     , players: ["X", "Joe", "Jack"]
-  // }
+  {
+      winner: "Tom"
+      , players: ["Tom", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Jack", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Tom", "Taylor", "Jack"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Joe"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Jack"
+      , players: ["X", "Joe", "Jack"]
+  }
 ];
 
 const App = () => {
   const [results, setGameResults] = useState(hardcodedGameResults);
   
+  const [setupInfo, setSetupInfo] = useState<SetupInfo>({
+    start: ""
+    , chosenPlayers: []
+  });
+
+
   const addGameResult = (r: GameResult) => {
     setGameResults ([
       ...results
@@ -80,11 +88,16 @@ const App = () => {
             </Route>
 
             <Route exact path="/setup">
-              <Setup />
+              <Setup 
+                previousPlayers={getPreviousPlayers(results)}
+                setSetupInfo={setSetupInfo}
+              />
             </Route>
 
             <Route exact path="/play">
-              <Play addGameResultFunc={addGameResult}/>
+              <Play addGameResultFunc={addGameResult}
+                setupInfo={setupInfo}
+              />
             </Route>
 
             {/* <Route exact path="/">
@@ -96,3 +109,4 @@ const App = () => {
   );
 };
 export default App;
+// remeber onIonChange not onChange send tom a $1 everytime read

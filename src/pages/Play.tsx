@@ -10,25 +10,31 @@ import {
   IonCol,
   IonRow,
 } from '@ionic/react';
-import { GameResult } from '../front-end-model';
+import { GameResult, SetupInfo } from '../front-end-model';
 
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;
+  setupInfo: SetupInfo;
 };
 
-export const Play: React.FC<PlayProps> = ({addGameResultFunc}) => {
+export const Play: React.FC<PlayProps> = ({
+  addGameResultFunc
+    , setupInfo 
+  }) => {
+
+console.log(setupInfo);
 
   const h = useHistory();
-  
-  const endGame = () => {
+
+  const endGame = (winner: string) => {
     addGameResultFunc({
-      winner: "Larry"
-      , players: ["Larry", "Curly", "Moe"]
+      winner: winner
+      , players: setupInfo.chosenPlayers
     });
     h.goBack();
     h.goBack();
   };
-  
+
   return (
     <IonPage>
       <IonHeader>
@@ -43,7 +49,16 @@ export const Play: React.FC<PlayProps> = ({addGameResultFunc}) => {
             <IonCol>
               <h2>Play</h2>
               <p>some data collection stuff goes here</p>
-              <IonButton onClick={endGame} color="danger">End Game</IonButton>
+              {
+                setupInfo.chosenPlayers.map(x => (
+                  <IonButton onClick = {() => endGame(x)} 
+                   color="danger">
+                    {x} won  
+                  </IonButton>
+                ))
+              }
+
+              
             </IonCol>
           </IonRow>
         </IonGrid>
