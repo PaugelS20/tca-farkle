@@ -75,7 +75,7 @@ const App = () => {
       <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route exact path="/home">
+            <Route exact path="/">
               <Home leaderboardData={calculateLeaderboard(results)}/>
             </Route>
 
