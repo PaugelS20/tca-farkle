@@ -31,8 +31,7 @@ console.log(setupInfo);
       winner: winner
       , players: setupInfo.chosenPlayers
     });
-    h.goBack();
-    h.goBack();
+    h.push("/")
   };
 
   return (
