@@ -2,6 +2,7 @@
   "name": "tca-farkle",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://tca-farkle.github.io/tca-farkle",
   "dependencies": {
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.3",
