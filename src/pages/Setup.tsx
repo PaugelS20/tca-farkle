@@ -20,10 +20,10 @@ import {
   IonCard,
   IonInput,
 } from '@ionic/react';
-import { add, personAddOutline } from 'ionicons/icons';
+import { personAddOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-import { getPreviousPlayers, SetupInfo } from '../front-end-model';
+import { SetupInfo } from '../front-end-model';
 import "./Setup.css"
 
 export interface SetupProps {
@@ -68,7 +68,8 @@ export const Setup: React.FC<SetupProps> = ({
 
 
   const validateAndAddNewPlayer = () => {
-    console.log(newPlayerName);
+    
+    console.log("validatedplayer",newPlayerName);
     // Validate first
     if (
       newPlayerName.length == 0
@@ -135,7 +136,8 @@ export const Setup: React.FC<SetupProps> = ({
                 <IonCol>
                   <IonList>
                     <IonItem>
-                      <IonCheckbox slot="start"
+                      <IonCheckbox slot="start" 
+                        checked={x.checked}
                         onIonChange={() => togglePlayer(x.name)}>{x.name}
                       </IonCheckbox>
                       <IonLabel>{x.name}</IonLabel>
