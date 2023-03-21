@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/tca-farkle/static/css/main.fb30b022.css",
+    "main.js": "/tca-farkle/static/js/main.c5845810.js",
+    "static/js/738.b4e266ab.chunk.js": "/tca-farkle/static/js/738.b4e266ab.chunk.js",
+    "static/js/572.3e96dd6b.chunk.js": "/tca-farkle/static/js/572.3e96dd6b.chunk.js",
+    "static/js/372.df82a1a7.chunk.js": "/tca-farkle/static/js/372.df82a1a7.chunk.js",
+    "static/js/856.542ae68d.chunk.js": "/tca-farkle/static/js/856.542ae68d.chunk.js",
+    "static/js/272.4c265bdf.chunk.js": "/tca-farkle/static/js/272.4c265bdf.chunk.js",
+    "static/js/841.f429fe43.chunk.js": "/tca-farkle/static/js/841.f429fe43.chunk.js",
+    "static/js/186.80f2ab56.chunk.js": "/tca-farkle/static/js/186.80f2ab56.chunk.js",
+    "static/js/862.796cdc81.chunk.js": "/tca-farkle/static/js/862.796cdc81.chunk.js",
+    "static/js/573.0323a3ee.chunk.js": "/tca-farkle/static/js/573.0323a3ee.chunk.js",
+    "static/js/225.2ea396a4.chunk.js": "/tca-farkle/static/js/225.2ea396a4.chunk.js",
+    "static/js/377.cafaffa1.chunk.js": "/tca-farkle/static/js/377.cafaffa1.chunk.js",
+    "static/js/883.acbb0cb2.chunk.js": "/tca-farkle/static/js/883.acbb0cb2.chunk.js",
+    "service-worker.js": "/tca-farkle/service-worker.js",
+    "index.html": "/tca-farkle/index.html",
+    "main.fb30b022.css.map": "/tca-farkle/static/css/main.fb30b022.css.map",
+    "main.c5845810.js.map": "/tca-farkle/static/js/main.c5845810.js.map",
+    "738.b4e266ab.chunk.js.map": "/tca-farkle/static/js/738.b4e266ab.chunk.js.map",
+    "572.3e96dd6b.chunk.js.map": "/tca-farkle/static/js/572.3e96dd6b.chunk.js.map",
+    "372.df82a1a7.chunk.js.map": "/tca-farkle/static/js/372.df82a1a7.chunk.js.map",
+    "856.542ae68d.chunk.js.map": "/tca-farkle/static/js/856.542ae68d.chunk.js.map",
+    "272.4c265bdf.chunk.js.map": "/tca-farkle/static/js/272.4c265bdf.chunk.js.map",
+    "841.f429fe43.chunk.js.map": "/tca-farkle/static/js/841.f429fe43.chunk.js.map",
+    "186.80f2ab56.chunk.js.map": "/tca-farkle/static/js/186.80f2ab56.chunk.js.map",
+    "862.796cdc81.chunk.js.map": "/tca-farkle/static/js/862.796cdc81.chunk.js.map",
+    "573.0323a3ee.chunk.js.map": "/tca-farkle/static/js/573.0323a3ee.chunk.js.map",
+    "225.2ea396a4.chunk.js.map": "/tca-farkle/static/js/225.2ea396a4.chunk.js.map",
+    "377.cafaffa1.chunk.js.map": "/tca-farkle/static/js/377.cafaffa1.chunk.js.map",
+    "883.acbb0cb2.chunk.js.map": "/tca-farkle/static/js/883.acbb0cb2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb30b022.css",
+    "static/js/main.c5845810.js"
+  ]
+}
