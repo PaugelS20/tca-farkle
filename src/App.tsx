@@ -31,6 +31,22 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 setupIonicReact();
 
+// const hardcodedGameResults: GameResult[] = [
+//   {
+//     winner: "Sam"
+//     , players: [
+//       {
+//         name: "Sam"
+//         , turns: [0, 0, 500, 2500, 0, 0, 0, 250, 100, 350, 0 , 0, 350]
+//       }
+//       , {
+//         name: "Tom"
+//         , turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+//       }
+//     ]
+//   }
+// ];
+
 
 const hardcodedGameResults: GameResult[] = [
   {

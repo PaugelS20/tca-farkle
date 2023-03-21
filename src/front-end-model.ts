@@ -1,11 +1,12 @@
 //
 // Interfaces and function types...
 //
+    // add later
 export interface GameResult {
     winner: string;
-    players: string[];
-    // add later
     // players: GamePlayer[];
+    players: string[];
+    
     start?: string;
     end?: string;
 };
@@ -13,22 +14,6 @@ export interface GamePlayer {
     name: string;
     turns: number[];
 }  
-//   const dummyResults: GameResult[] = [
-//     {
-//       winner: "Sam"
-//       , players: [
-//         {
-//           name: "Sam"
-//           , turns: [0, 0, 500, 2500, 0, 0, 0, 250, 100, 350, 0 , 0, 350]
-//         }
-//         , {
-//           name: "Tom"
-//           , turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-//         }
-//       ]
-//     }
-//   ];
-
 export interface LeaderboardPlayer {
     name: string;
     wins: number;
@@ -92,6 +77,5 @@ export const calculateLeaderboard: CalculateLeaderboardFunc = (results) => {
         .map(x => ({
             ...x
             , avg: x.avg.toFixed(3)
-        }))
-    ;
+        }));
 };

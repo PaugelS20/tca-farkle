@@ -69,7 +69,7 @@ export const Setup: React.FC<SetupProps> = ({
 
   const validateAndAddNewPlayer = () => {
     
-    console.log("validatedplayer",newPlayerName);
+    console.log("validatedplayer", newPlayerName);
     // Validate first
     if (
       newPlayerName.length == 0
@@ -141,7 +141,6 @@ export const Setup: React.FC<SetupProps> = ({
                         onIonChange={() => togglePlayer(x.name)}>{x.name}
                       </IonCheckbox>
                       <IonLabel>{x.name}</IonLabel>
-
                     </IonItem>
                   </IonList>
                 </IonCol>
