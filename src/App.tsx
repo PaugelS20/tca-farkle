@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router';
 import { Home, Setup, Play } from './pages';
-import { 
-  GameResult, 
-  calculateLeaderboard, 
+import {
+  GameResult,
+  calculateLeaderboard,
   SetupInfo,
   getPreviousPlayers
 } from './front-end-model';
-
+import { } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,38 +34,38 @@ setupIonicReact();
 
 const hardcodedGameResults: GameResult[] = [
   {
-      winner: "Tom"
-      , players: ["Tom", "Taylor"]
+    winner: "Tom"
+    , players: ["Tom", "Taylor"]
   }
   , {
-      winner: "Taylor"
-      , players: ["Jack", "Taylor"]
+    winner: "Taylor"
+    , players: ["Jack", "Taylor"]
   }
   , {
-      winner: "Taylor"
-      , players: ["Tom", "Taylor", "Jack"]
+    winner: "Taylor"
+    , players: ["Tom", "Taylor", "Jack"]
   }
   , {
-      winner: "X"
-      , players: ["X", "Joe"]
+    winner: "X"
+    , players: ["X", "Joe"]
   }
   , {
-      winner: "X"
-      , players: ["X", "Joe"]
+    winner: "X"
+    , players: ["X", "Joe"]
   }
   , {
-      winner: "Joe"
-      , players: ["X", "Joe"]
+    winner: "Joe"
+    , players: ["X", "Joe"]
   }
   , {
-      winner: "Jack"
-      , players: ["X", "Joe", "Jack"]
+    winner: "Jack"
+    , players: ["X", "Joe", "Jack"]
   }
 ];
 
 const App = () => {
   const [results, setGameResults] = useState(hardcodedGameResults);
-  
+
   const [setupInfo, setSetupInfo] = useState<SetupInfo>({
     start: ""
     , chosenPlayers: []
@@ -73,39 +73,40 @@ const App = () => {
 
 
   const addGameResult = (r: GameResult) => {
-    setGameResults ([
+    setGameResults([
       ...results
       , r
     ]);
   };
-    
+
   return (
-      <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Route exact path="/">
-              <Home leaderboardData={calculateLeaderboard(results)}/>
-            </Route>
+    <IonApp>
+      <IonReactHashRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Home leaderboardData={calculateLeaderboard(results)} />
+          </Route>
 
-            <Route exact path="/setup">
-              <Setup 
-                previousPlayers={getPreviousPlayers(results)}
-                setSetupInfo={setSetupInfo}
-              />
-            </Route>
+          <Route exact path="/setup">
+            <Setup
+              previousPlayers={getPreviousPlayers(results)}
+              setSetupInfo={setSetupInfo}
+            />
+          </Route>
 
-            <Route exact path="/play">
-              <Play addGameResultFunc={addGameResult}
-                setupInfo={setupInfo}
-              />
-            </Route>
+          <Route exact path="/play">
+            <Play addGameResultFunc={addGameResult}
+              setupInfo={setupInfo}
+            />
+          </Route>
 
-            {/* <Route exact path="/">
+
+          {/* <Route exact path="/">
               <Redirect to="/home" />
             </Route> */}
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
+        </IonRouterOutlet>
+      </IonReactHashRouter>
+    </IonApp >
   );
 };
 export default App;
