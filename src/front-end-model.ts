@@ -7,8 +7,8 @@ export interface GameResult {
     // players: GamePlayer[];
     players: string[];
     
-    start?: string;
-    end?: string;
+    start: string;
+    end: string;
 };
 export interface GamePlayer {
     name: string;
@@ -79,3 +79,42 @@ export const calculateLeaderboard: CalculateLeaderboardFunc = (results) => {
             , avg: x.avg.toFixed(3)
         }));
 };
+export const getShortestGameDuration = (results: GameResult[]) => Math.min(
+    ...results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime())
+);
+
+export const getLongestGameDuration = (results: GameResult[]) => Math.max(
+    ...results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime())
+);
+export const getAvgGameDuration = (results: GameResult[]) => Math.avg(
+    ...results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime())
+);
+const calculateAverage = (array: number[]): number => {
+    let sum = 0;
+    for (let i = 0; i < array.length; ++i) {
+        sum += array[i];
+    }
+    return sum / array.length;
+};
+
+
+// Usage example:
+
+const numbers: number[] = [10, 20, 30];
+const average: number = calculateAverage(numbers);
+
+console.log(average);
+// npm.runkit.com/human-readable REPL code
+
+// let humanReadable = require("human-readable")
+
+// const start = new Date("2023-03-23T17:39:03.023Z");
+// const duration = Date.now() - start.getTime();
+
+// const format = humanReadable.durationFormatter();
+
+// console.log(
+//     duration
+//     , duration / 1000/ 60
+//     , format(duration)
+// );

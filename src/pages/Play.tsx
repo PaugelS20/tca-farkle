@@ -29,6 +29,9 @@ export const Play: React.FC<PlayProps> = ({
     addGameResultFunc({
       winner: winner
       , players: setupInfo.chosenPlayers
+      , start: setupInfo.start
+      , end: new Date().toISOString()
+  
     });
     h.push("/")
   };

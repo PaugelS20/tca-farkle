@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
-import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router';
+import { IonReactHashRouter } from '@ionic/react-router';
 import { Home, Setup, Play } from './pages';
 import {
   GameResult,
   calculateLeaderboard,
   SetupInfo,
-  getPreviousPlayers
+  getPreviousPlayers,
+  getShortestGameDuration,
+  getLongestGameDuration,
 } from './front-end-model';
 import { } from '@ionic/react-router';
 
@@ -52,30 +54,44 @@ const hardcodedGameResults: GameResult[] = [
   {
     winner: "Tom"
     , players: ["Tom", "Taylor"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "Taylor"
     , players: ["Jack", "Taylor"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "Taylor"
     , players: ["Tom", "Taylor", "Jack"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "X"
     , players: ["X", "Joe"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "X"
     , players: ["X", "Joe"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "Joe"
     , players: ["X", "Joe"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "Jack"
     , players: ["X", "Joe", "Jack"]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:48:03.023Z"
   }
 ];
 
@@ -100,7 +116,11 @@ const App = () => {
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
-            <Home leaderboardData={calculateLeaderboard(results)} />
+            <Home 
+            leaderboardData={calculateLeaderboard(results)} 
+            shortestGameDuration={getShortestGameDuration(results)}
+            longestGameDuration={getLongestGameDuration(results)}
+            />
           </Route>
 
           <Route exact path="/setup">
@@ -115,11 +135,6 @@ const App = () => {
               setupInfo={setupInfo}
             />
           </Route>
-
-
-          {/* <Route exact path="/">
-              <Redirect to="/home" />
-            </Route> */}
         </IonRouterOutlet>
       </IonReactHashRouter>
     </IonApp >
@@ -127,3 +142,8 @@ const App = () => {
 };
 export default App;
 // remeber onIonChange not onChange send tom a $1 everytime read
+
+
+{/* <Route exact path="/">
+              <Redirect to="/home" />
+            </Route> */}
