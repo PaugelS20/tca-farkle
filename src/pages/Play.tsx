@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { useHistory } from 'react-router-dom';
 import {
   IonContent,
@@ -9,8 +11,14 @@ import {
   IonGrid,
   IonCol,
   IonRow,
+  IonInput,
+  IonLabel,
+  IonItem,
+  IonItemGroup,
+  IonBadge,
 } from '@ionic/react';
 import { GameResult, SetupInfo, GamePlayer } from '../front-end-model';
+
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;
   setupInfo: SetupInfo;
@@ -20,8 +28,14 @@ export const Play: React.FC<PlayProps> = ({
   addGameResultFunc
   , setupInfo
 }) => {
-
-  console.log(setupInfo);
+  
+  const [state, setState] = useState("")
+  
+  const currentPoints = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setState(e.target.value);
+  }
+  
+  // console.log(setupInfo);
 
   const h = useHistory();
 
@@ -34,9 +48,20 @@ export const Play: React.FC<PlayProps> = ({
       }))
       , start: setupInfo.start
       , end: new Date().toISOString()
-  
     });
     h.push("/")
+  };
+
+  const addPoints = (winner: string) => {
+    addGameResultFunc({
+      winner: winner
+      , players: setupInfo.chosenPlayers.map(x => ({
+        name: x
+        , turns: []
+      }))
+      , start: setupInfo.start
+      , end: new Date().toISOString()
+    });
   };
 
   return (
@@ -55,10 +80,25 @@ export const Play: React.FC<PlayProps> = ({
               <p>some data collection stuff goes here</p>
               {
                 setupInfo.chosenPlayers.map(x => (
-                  <IonButton onClick={() => endGame(x)}
-                    color="danger">
-                    {x} won
-                  </IonButton>
+                  <>
+                    <IonRow id='playContainer'>
+                      <IonItem>
+                        <IonLabel position="floating">Points</IonLabel>
+                        <IonInput type="number" placeholder="0"  value={state} onChange={currentPoints}></IonInput>
+                        <IonBadge slot="end">{state}</IonBadge>
+                      </IonItem>
+                    </IonRow>
+                    <IonRow>
+                      <IonButton onClick={() => addPoints(state)}
+                        color="success">
+                        {x} Add
+                      </IonButton>
+                      <IonButton onClick={() => endGame(x)}
+                        color="danger">
+                        {x} won
+                      </IonButton>
+                    </IonRow>
+                  </>
                 ))
               }
 

@@ -82,36 +82,89 @@ const hardcodedGameResults: GameResult[] = [
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
   }
-  // , {
-  //   winner: "Taylor"
-  //   , players: ["Tom", "Taylor", "Jack"] 
-  //   , start: "2023-03-23T17:38:03.023Z"
-  //   , end: "2023-03-23T17:40:03.023Z"
-  // }
-  // , {
-  //   winner: "X"
-  //   , players: ["X", "Joe"]
-  //   , start: "2023-03-23T17:38:03.023Z"
-  //   , end: "2023-03-23T17:40:03.023Z"
-  // }
-  // , {
-  //   winner: "X"
-  //   , players: ["X", "Joe"]
-  //   , start: "2023-03-23T17:38:03.023Z"
-  //   , end: "2023-03-23T17:40:03.023Z"
-  // }
-  // , {
-  //   winner: "Joe"
-  //   , players: ["X", "Joe"]
-  //   , start: "2023-03-23T17:38:03.023Z"
-  //   , end: "2023-03-23T17:40:03.023Z"
-  // }
-  // , {
-  //   winner: "Jack"
-  //   , players: ["X", "Joe", "Jack"]
-  //   , start: "2023-03-23T17:38:03.023Z"
-  //   , end: "2023-03-23T17:48:03.023Z"
-  // }
+  , {
+    winner: "Taylor"
+    , players: [
+      {
+        name: "Tom",
+        turns: []
+      },
+      {
+        name: "Taylor",
+        turns: []
+      },
+      {
+        name: "Jack",
+        turns: []
+      }
+    ]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
+  }
+  , {
+    winner: "X"
+    , players: [
+      {
+        name: "X",
+        turns: []
+      },
+      {
+        name: "Joe",
+        turns: []
+      }
+    ]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
+  }
+  , {
+    winner: "X"
+    , players: [
+      {
+        name: "X",
+        turns: []
+      },
+      {
+        name: "Joe",
+        turns: []
+      }
+    ]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
+  }
+  , {
+    winner: "Joe"
+    , players: [
+      {
+        name: "X",
+        turns: []
+      },
+      {
+        name: "Joe",
+        turns: []
+      }
+    ]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:40:03.023Z"
+  }
+  , {
+    winner: "Jack"
+    , players: [
+      {
+        name: "X",
+        turns: []
+      },
+      {
+        name: "Joe",
+        turns: []
+      },
+      {
+        name: "Jack",
+        turns: []
+      }
+    ]
+    , start: "2023-03-23T17:38:03.023Z"
+    , end: "2023-03-23T17:48:03.023Z"
+  }
 ];
 
 const App = () => {

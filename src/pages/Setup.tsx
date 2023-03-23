@@ -12,7 +12,6 @@ import {
   IonCheckbox,
   IonLabel,
   IonList,
-  IonFab,
   IonFabButton,
   IonIcon,
   IonText,
@@ -68,7 +67,6 @@ export const Setup: React.FC<SetupProps> = ({
 
 
   const validateAndAddNewPlayer = () => {
-    
     console.log("validatedplayer", newPlayerName);
     // Validate first
     if (
