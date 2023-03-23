@@ -28,7 +28,10 @@ export const Play: React.FC<PlayProps> = ({
   const endGame = (winner: string) => {
     addGameResultFunc({
       winner: winner
-      , players: setupInfo.chosenPlayers
+      , players: setupInfo.chosenPlayers.map(x => ({
+        name: x
+        , turns: []
+      }))
       , start: setupInfo.start
       , end: new Date().toISOString()
   

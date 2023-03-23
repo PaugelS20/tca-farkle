@@ -10,6 +10,7 @@ import {
   getPreviousPlayers,
   getShortestGameDuration,
   getLongestGameDuration,
+  getAvgGameDuration,
 } from './front-end-model';
 import { } from '@ionic/react-router';
 
@@ -53,46 +54,64 @@ setupIonicReact();
 const hardcodedGameResults: GameResult[] = [
   {
     winner: "Tom"
-    , players: ["Tom", "Taylor"]
+    , players: [
+      {
+        name: "Tom",
+        turns: []
+      },
+      {
+        name: "Taylor",
+        turns: []
+      }
+  ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
   }
   , {
     winner: "Taylor"
-    , players: ["Jack", "Taylor"]
+    , players: [
+      {
+        name: "Jack",
+        turns: []
+      },
+      {
+        name: "Taylor",
+        turns: []
+      }
+    ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
   }
-  , {
-    winner: "Taylor"
-    , players: ["Tom", "Taylor", "Jack"]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-  }
-  , {
-    winner: "X"
-    , players: ["X", "Joe"]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-  }
-  , {
-    winner: "X"
-    , players: ["X", "Joe"]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-  }
-  , {
-    winner: "Joe"
-    , players: ["X", "Joe"]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-  }
-  , {
-    winner: "Jack"
-    , players: ["X", "Joe", "Jack"]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:48:03.023Z"
-  }
+  // , {
+  //   winner: "Taylor"
+  //   , players: ["Tom", "Taylor", "Jack"] 
+  //   , start: "2023-03-23T17:38:03.023Z"
+  //   , end: "2023-03-23T17:40:03.023Z"
+  // }
+  // , {
+  //   winner: "X"
+  //   , players: ["X", "Joe"]
+  //   , start: "2023-03-23T17:38:03.023Z"
+  //   , end: "2023-03-23T17:40:03.023Z"
+  // }
+  // , {
+  //   winner: "X"
+  //   , players: ["X", "Joe"]
+  //   , start: "2023-03-23T17:38:03.023Z"
+  //   , end: "2023-03-23T17:40:03.023Z"
+  // }
+  // , {
+  //   winner: "Joe"
+  //   , players: ["X", "Joe"]
+  //   , start: "2023-03-23T17:38:03.023Z"
+  //   , end: "2023-03-23T17:40:03.023Z"
+  // }
+  // , {
+  //   winner: "Jack"
+  //   , players: ["X", "Joe", "Jack"]
+  //   , start: "2023-03-23T17:38:03.023Z"
+  //   , end: "2023-03-23T17:48:03.023Z"
+  // }
 ];
 
 const App = () => {
@@ -116,10 +135,11 @@ const App = () => {
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
-            <Home 
-            leaderboardData={calculateLeaderboard(results)} 
+            <Home leaderboardData
+            ={calculateLeaderboard(results)} 
             shortestGameDuration={getShortestGameDuration(results)}
             longestGameDuration={getLongestGameDuration(results)}
+            avgGameDuration={getAvgGameDuration(results)}
             />
           </Route>
 

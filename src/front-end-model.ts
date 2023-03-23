@@ -4,8 +4,8 @@
     // add later
 export interface GameResult {
     winner: string;
-    // players: GamePlayer[];
-    players: string[];
+    players: GamePlayer[];
+    // players: string[];
     
     start: string;
     end: string;
@@ -34,7 +34,7 @@ export type CalculateLeaderboardFunc = (results: GameResult[]) => LeaderboardPla
 //
 export const getPreviousPlayers: GetPreviousPlayersFunc = (grs) => {
     
-    const allPreviousPlayers = grs.flatMap(x => x.players);
+    const allPreviousPlayers = grs.flatMap(x => x.players.map(y => y.name));
     
     return [
         ...new Set(allPreviousPlayers)
@@ -46,7 +46,7 @@ export const calculateLeaderboard: CalculateLeaderboardFunc = (results) => {
     const gameResultsGroupedByPlayer = getPreviousPlayers(results).reduce(
         (acc, x) => acc.set(
             x
-            , results.filter(y => y.players.includes(x))
+            , results.filter(y => y.players.map(z => z.name).includes(x))
         )
         , new Map<string, GameResult[]>() 
     );
@@ -86,24 +86,16 @@ export const getShortestGameDuration = (results: GameResult[]) => Math.min(
 export const getLongestGameDuration = (results: GameResult[]) => Math.max(
     ...results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime())
 );
-export const getAvgGameDuration = (results: GameResult[]) => Math.avg(
-    ...results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime())
-);
-const calculateAverage = (array: number[]): number => {
-    let sum = 0;
-    for (let i = 0; i < array.length; ++i) {
-        sum += array[i];
-    }
-    return sum / array.length;
+export const getAvgGameDuration = (results: GameResult[]) => {
+    const durations = results.map(x => new Date(x.end).getTime() - new Date(x.start).getTime());
+    const sum = durations.reduce(
+        (acc, x) => acc + x
+        , 0
+    );
+    return sum / durations.length;
 };
 
 
-// Usage example:
-
-const numbers: number[] = [10, 20, 30];
-const average: number = calculateAverage(numbers);
-
-console.log(average);
 // npm.runkit.com/human-readable REPL code
 
 // let humanReadable = require("human-readable")

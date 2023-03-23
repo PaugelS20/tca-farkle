@@ -24,12 +24,14 @@ interface HomeProps {
 	leaderboardData: LeaderboardPlayer[];
 	shortestGameDuration: number;
 	longestGameDuration: number;
+	avgGameDuration: number;
 };
 
-export const Home: React.FC<HomeProps> = ({ 
-	leaderboardData 
+export const Home: React.FC<HomeProps> = ({
+	leaderboardData
 	, shortestGameDuration
 	, longestGameDuration
+	, avgGameDuration
 }) => {
 
 	console.log(leaderboardData);
@@ -106,8 +108,16 @@ export const Home: React.FC<HomeProps> = ({
 								</IonCardHeader>
 
 								<IonCardContent>
-									{`${format(shortestGameDuration)} Shortest game ever `}
-									{`${format(longestGameDuration)} Longest game ever`}
+									<IonRow>
+										{`Shortest game ever ${format(shortestGameDuration)}`}
+									</IonRow>
+									<IonRow>
+										{`Longest game ever ${format(longestGameDuration)}`}
+									</IonRow>
+									<IonRow>
+										{`Average game time ${format(avgGameDuration)}`}
+									</IonRow>
+
 								</IonCardContent>
 							</IonCard>
 						</IonCol>
