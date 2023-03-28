@@ -16,7 +16,6 @@ import {
   IonIcon,
   IonText,
   IonNavLink,
-  IonCard,
   IonInput,
 } from '@ionic/react';
 import { personAddOutline } from 'ionicons/icons';

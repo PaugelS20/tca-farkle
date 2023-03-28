@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 
 import { useHistory } from 'react-router-dom';
 import {
@@ -14,7 +14,6 @@ import {
   IonInput,
   IonLabel,
   IonItem,
-  IonItemGroup,
   IonBadge,
 } from '@ionic/react';
 import { GameResult, SetupInfo, GamePlayer } from '../front-end-model';
@@ -31,9 +30,9 @@ export const Play: React.FC<PlayProps> = ({
   
   const [state, setState] = useState("")
   
-  const currentPoints = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState(e.target.value);
-  }
+  // const currentPoints = (event: FormEventHandler) {
+  //   // setState{(e: any) => setNewPlayerName(e.target.value)}
+  // }
   
   // console.log(setupInfo);
 
@@ -52,9 +51,9 @@ export const Play: React.FC<PlayProps> = ({
     h.push("/")
   };
 
-  const addPoints = (winner: string) => {
+  const addPoints = (points: string) => {
     addGameResultFunc({
-      winner: winner
+      winner: points
       , players: setupInfo.chosenPlayers.map(x => ({
         name: x
         , turns: []
@@ -84,14 +83,18 @@ export const Play: React.FC<PlayProps> = ({
                     <IonRow id='playContainer'>
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                        <IonInput type="number" placeholder="0"  value={state} ></IonInput> {/*onChange={currentPoints}*/}
-                        <IonBadge slot="end">{state}</IonBadge>
+                        <IonInput type="number" placeholder="0"  onIonChange={(e: any) => setState(e.target.value)}></IonInput>
+                        <IonBadge slot="end">{state}hello</IonBadge>  {/**/}
                       </IonItem>
                     </IonRow>
                     <IonRow>
                       <IonButton onClick={() => addPoints(state)}
                         color="success">
                         {x} Add
+                      </IonButton>
+                      <IonButton onClick={() => endGame(x)} //?
+                        color="warning">
+                        {x} Farkle
                       </IonButton>
                       <IonButton onClick={() => endGame(x)}
                         color="danger">
