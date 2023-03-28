@@ -84,7 +84,7 @@ export const Play: React.FC<PlayProps> = ({
                     <IonRow id='playContainer'>
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                        <IonInput type="number" placeholder="0"  value={state} onChange={currentPoints}></IonInput>
+                        <IonInput type="number" placeholder="0"  value={state} ></IonInput> {/*onChange={currentPoints}*/}
                         <IonBadge slot="end">{state}</IonBadge>
                       </IonItem>
                     </IonRow>
