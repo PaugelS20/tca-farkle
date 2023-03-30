@@ -28,7 +28,21 @@ export const Play: React.FC<PlayProps> = ({
   , setupInfo
 }) => {
   
-  const [state, setState] = useState("")
+  const [playerScores, setPlayerScores] = useState<{
+    name: string;
+    scoreInput: number;
+  }[]>(setupInfo.chosenPlayers.map(x => ({
+    name: x
+    , scoreInput: 0
+  })));
+
+  const [gameTurns, setGameTurns] = useState<{
+    name: string;
+    points: number;
+  }[]>([]);
+
+
+
   
   // const currentPoints = (event: FormEventHandler) {
   //   // setState{(e: any) => setNewPlayerName(e.target.value)}
@@ -51,17 +65,23 @@ export const Play: React.FC<PlayProps> = ({
     h.push("/")
   };
 
-  const addPoints = (points: string) => {
-    addGameResultFunc({
-      winner: points
-      , players: setupInfo.chosenPlayers.map(x => ({
-        name: x
-        , turns: []
-      }))
-      , start: setupInfo.start
-      , end: new Date().toISOString()
-    });
+  const addPoints = (player: string) => {
+    setGameTurns([
+      ...gameTurns
+      , {
+        name: player
+        , points: playerScores.filter(x => x.name == player)[0].scoreInput
+      }
+    ]);
+    setPlayerScores([
+      ...playerScores.filter(y => y.name !== player)
+      , {
+        name: player
+        , scoreInput: 0
+      }
+    ])  
   };
+  // const sum = value + newValue
 
   return (
     <IonPage>
@@ -83,12 +103,37 @@ export const Play: React.FC<PlayProps> = ({
                     <IonRow id='playContainer'>
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                        <IonInput type="number" placeholder="0"  onIonChange={(e: any) => setState(e.target.value)}></IonInput>
-                        <IonBadge slot="end">{state}hello</IonBadge>  {/**/}
+                        <IonInput 
+                          type="number" 
+                          placeholder="0" 
+                          value={
+                            playerScores.filter(y => y.name == x)[0].scoreInput
+                          } 
+                          onIonChange={(e: any) => setPlayerScores([
+                            ...playerScores.filter(y => y.name !== x)
+                            , {
+                              name: x
+                              , scoreInput: Number(e.target.value)
+                            }
+                          ])}
+                          
+                        >
+
+                          </IonInput>
+                        <IonBadge slot="end">{
+                          gameTurns
+                            .filter(
+                              y => y.name == x
+                            )
+                            .reduce(
+                              (acc, x) => acc + x.points
+                              , 0
+                            )
+                        }</IonBadge>  {/**/}
                       </IonItem>
                     </IonRow>
                     <IonRow>
-                      <IonButton onClick={() => addPoints(state)}
+                      <IonButton onClick={() => addPoints(x)}
                         color="success">
                         {x} Add
                       </IonButton>
