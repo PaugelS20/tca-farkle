@@ -9,7 +9,7 @@ export const MainHeader: React.FC = () => {
     return (
         <IonHeader translucent={true}>
             <IonToolbar>
-                <IonTitle>Farkle Companion App</IonTitle>
+                <IonTitle>Farkle App</IonTitle>
             </IonToolbar>
         </IonHeader>
     );
