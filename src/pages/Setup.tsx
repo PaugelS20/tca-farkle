@@ -107,22 +107,21 @@ export const Setup: React.FC<SetupProps> = ({
               <IonList id='IonListandNewPlayerbutton'>
                 <IonItem
                   id='newPlayerNameInput'
-                  fill="solid">
-                  <IonLabel position="floating">Add Player</IonLabel>
-                  <IonInput
-                    placeholder="Enter text"
-                    value={newPlayerName}
-                    onIonChange={(e: any) => setNewPlayerName(e.target.value)}
-                  >
-                  </IonInput>
+                  fill="solid"
+                >
+                    <IonLabel position="floating">Add Player</IonLabel>
+                    <IonInput
+                      placeholder="Enter text"
+                      value={newPlayerName}
+                      onIonChange={(e: any) => setNewPlayerName(e.target.value)}
+                    >
+                    </IonInput>
                 </IonItem>
 
                 <IonFabButton size="small" onClick={validateAndAddNewPlayer}>
                   <IonIcon icon={personAddOutline}></IonIcon>
                 </IonFabButton>
               </IonList>
-
-
             </IonCol>
           </IonRow>
 
@@ -158,3 +157,16 @@ export const Setup: React.FC<SetupProps> = ({
     </IonPage>
   );
 };
+
+// new ionic 7 input cleaner not sure if I should upgrade yet
+{/* Before
+<IonItem>
+  <IonLabel position="floating">Email:</IonLabel>
+  <IonInput></IonInput>
+</IonItem>
+
+After
+<IonItem>
+  <IonInput label="Email:" labelPlacement="floating"></IonInput>
+</IonItem> */}
+
