@@ -4,12 +4,12 @@
 #leaderboardResults {
 	padding: 0em 0em 1em 0em;
 }
-/* .leaderboardHeaders {
+.leaderboardHeaders {
 	font-weight: bold;
 	border-bottom: solid rgb(146, 143, 143) 0.1em;
     background: translucent;
-} */
-ion-title.title-large {
+}
+/* ion-title.title-large {
 	color: #c897d8;
 }
 
@@ -19,4 +19,4 @@ ion-title {
 
 ion-toolbar {
 	--background: #c897d8;
-}
+} */
