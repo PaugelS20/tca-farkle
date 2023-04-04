@@ -14,6 +14,7 @@ import {
   IonLabel,
   IonItem,
   IonBadge,
+  IonImg,
 } from '@ionic/react';
 import { GameResult, SetupInfo } from '../front-end-model';
 
@@ -44,8 +45,8 @@ export const Play: React.FC<PlayProps> = ({
 
   const endGame = (winner: string) => {
     addGameResultFunc({
-      winner: winner
-      , players: setupInfo.chosenPlayers.map(x => ({
+      winner: winner,
+       players: setupInfo.chosenPlayers.map(x => ({
         name: x
         , turns: []
       }))
@@ -79,34 +80,35 @@ export const Play: React.FC<PlayProps> = ({
           <IonTitle>Farkle Companion App</IonTitle>
         </IonToolbar>
       </IonHeader>
-      
+
       <IonContent fullscreen>
         <IonGrid>
           <IonRow>
             <IonCol>
               <h2>Play</h2>
               <p>some data collection stuff goes here</p>
+              <IonImg src="farkle-scoring.png" alt="farkle-scoring-sheet" />
               {
                 setupInfo.chosenPlayers.map(x => (
                   <>
                     <IonRow id='playContainer'>
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                        <IonInput
-                          type="number"
-                          placeholder="0"
-                          value={
-                            playerScores.filter(y => y.name == x)[0].scoreInput
-                          }
-                          onIonChange={(e: any) => setPlayerScores([
-                            ...playerScores.filter(y => y.name !== x)
-                            , {
-                              name: x
-                              , scoreInput: Number(e.target.value)
+                          <IonInput
+                            type="number"
+                            placeholder="0"
+                            value={
+                              playerScores.filter(y => y.name == x)[0].scoreInput
                             }
-                          ])}
-                        >
-                        </IonInput>
+                            onIonChange={(e: any) => setPlayerScores([
+                              ...playerScores.filter(y => y.name !== x)
+                              , {
+                                name: x
+                                , scoreInput: Number(e.target.value)
+                              }
+                            ])}
+                          >
+                          </IonInput>
 
                         <IonBadge slot="end">{
                           gameTurns
@@ -126,22 +128,30 @@ export const Play: React.FC<PlayProps> = ({
                         color="success">
                         {x} Add
                       </IonButton>
-                      
+
                       <IonButton onClick={() => endGame(x)} //?
                         color="warning">
                         {x} Farkle
                       </IonButton>
-                      
-                      <IonButton onClick={() => endGame(x)}
-                        color="danger">
-                        {x} won
-                      </IonButton>
+
                     </IonRow>
                   </>
                 ))
               }
             </IonCol>
           </IonRow>
+          {
+            setupInfo.chosenPlayers.map(x => (
+            <IonRow>
+              <IonCol>
+                <IonButton onClick={() => endGame(x)}
+                  color="danger">
+                  End Game
+                </IonButton>
+              </IonCol>
+            </IonRow>
+            ))
+          }
         </IonGrid>
       </IonContent>
     </IonPage>
