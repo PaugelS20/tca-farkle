@@ -18,7 +18,7 @@ import {
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
-import './Home.css';
+import './pageCSS/Home.css';
 
 interface HomeProps {
 	leaderboardData: LeaderboardPlayer[];
@@ -33,10 +33,9 @@ export const Home: React.FC<HomeProps> = ({
 	, longestGameDuration
 	, avgGameDuration
 }) => {
-
-	console.log(leaderboardData);
-
+	// console.log(leaderboardData);
 	const format = durationFormatter();
+	
 	return (
 		<IonPage>
 			<MainHeader />
