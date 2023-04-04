@@ -86,6 +86,8 @@ export const Home: React.FC<HomeProps> = ({
 															<IonCol>{x.losses}</IonCol>
 															<IonCol>{x.avg}</IonCol>
 															<IonCol>{x.name}</IonCol>
+															<IonCol>{x.name}</IonCol>
+
 														</IonRow>
 													))
 												}

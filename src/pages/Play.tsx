@@ -44,9 +44,10 @@ export const Play: React.FC<PlayProps> = ({
   const h = useHistory();
 
   const endGame = (winner: string) => {
+    // ? points == 10000 return
     addGameResultFunc({
       winner: winner,
-       players: setupInfo.chosenPlayers.map(x => ({
+      players: setupInfo.chosenPlayers.map(x => ({
         name: x
         , turns: []
       }))
@@ -72,7 +73,7 @@ export const Play: React.FC<PlayProps> = ({
       }
     ])
   };
-
+  const scoreGreaterThanTenThousand = false;
   return (
     <IonPage>
       <IonHeader>
@@ -94,21 +95,21 @@ export const Play: React.FC<PlayProps> = ({
                     <IonRow id='playContainer'>
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                          <IonInput
-                            type="number"
-                            placeholder="0"
-                            value={
-                              playerScores.filter(y => y.name == x)[0].scoreInput
+                        <IonInput
+                          type="number"
+                          placeholder="0"
+                          value={
+                            playerScores.filter(y => y.name == x)[0].scoreInput
+                          }
+                          onIonChange={(e: any) => setPlayerScores([
+                            ...playerScores.filter(y => y.name !== x)
+                            , {
+                              name: x
+                              , scoreInput: Number(e.target.value)
                             }
-                            onIonChange={(e: any) => setPlayerScores([
-                              ...playerScores.filter(y => y.name !== x)
-                              , {
-                                name: x
-                                , scoreInput: Number(e.target.value)
-                              }
-                            ])}
-                          >
-                          </IonInput>
+                          ])}
+                        >
+                        </IonInput>
 
                         <IonBadge slot="end">{
                           gameTurns
@@ -140,16 +141,24 @@ export const Play: React.FC<PlayProps> = ({
               }
             </IonCol>
           </IonRow>
+          <IonRow>
+            { scoreGreaterThanTenThousand &&
+            <IonButton 
+              color="danger">
+              End Game
+            </IonButton>
+            }
+          </IonRow>
           {
             setupInfo.chosenPlayers.map(x => (
-            <IonRow>
-              <IonCol>
-                <IonButton onClick={() => endGame(x)}
-                  color="danger">
-                  End Game
-                </IonButton>
-              </IonCol>
-            </IonRow>
+              <IonRow>
+                <IonCol>
+                  <IonButton onClick={() => endGame(x)}
+                    color="danger">
+                    {x} End Game
+                  </IonButton>
+                </IonCol>
+              </IonRow>
             ))
           }
         </IonGrid>
@@ -157,3 +166,6 @@ export const Play: React.FC<PlayProps> = ({
     </IonPage>
   )
 };
+
+// add function to say that when the points reach ten thousand show the 
+// end game button if that player is beat end the game and then show the points on the leaderboard

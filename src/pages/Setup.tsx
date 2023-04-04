@@ -64,7 +64,6 @@ export const Setup: React.FC<SetupProps> = ({
     h.push("/play");
   }
 
-
   const validateAndAddNewPlayer = () => {
     console.log("validatedplayer", newPlayerName);
     // Validate first
@@ -83,7 +82,6 @@ export const Setup: React.FC<SetupProps> = ({
         }
       ]
     );
-
     setNewPlayerName("");
   };
 
@@ -96,7 +94,6 @@ export const Setup: React.FC<SetupProps> = ({
       </IonHeader>
 
       <IonContent fullscreen>
-
         <IonGrid>
 
           <IonRow>
@@ -110,12 +107,12 @@ export const Setup: React.FC<SetupProps> = ({
                   fill="solid"
                 >
                     <IonLabel position="floating">Add Player</IonLabel>
-                    <IonInput
-                      placeholder="Enter text"
-                      value={newPlayerName}
-                      onIonChange={(e: any) => setNewPlayerName(e.target.value)}
-                    >
-                    </IonInput>
+                      <IonInput
+                        placeholder="Enter text"
+                        value={newPlayerName}
+                        onIonChange={(e: any) => setNewPlayerName(e.target.value)}
+                      >
+                      </IonInput>
                 </IonItem>
 
                 <IonFabButton size="small" onClick={validateAndAddNewPlayer}>
@@ -124,8 +121,6 @@ export const Setup: React.FC<SetupProps> = ({
               </IonList>
             </IonCol>
           </IonRow>
-
-
           {
             chosenPlayers.map(x => (
               <IonRow>
@@ -143,8 +138,6 @@ export const Setup: React.FC<SetupProps> = ({
               </IonRow>
             ))
           }
-
-
           <IonRow>
             <IonCol>
               <IonNavLink routerDirection="forward">
