@@ -44,7 +44,6 @@ export const Play: React.FC<PlayProps> = ({
   const h = useHistory();
 
   const endGame = (winner: string) => {
-    // ? points == 10000 return
     addGameResultFunc({
       winner: winner,
       players: setupInfo.chosenPlayers.map(x => ({
@@ -73,7 +72,11 @@ export const Play: React.FC<PlayProps> = ({
       }
     ])
   };
-  const scoreGreaterThanTenThousand = false;
+  
+  const scoreGreaterThanTenThousand = () => {
+      playerScores.filter(x => x.scoreInput == 100000)
+  }
+  
   return (
     <IonPage>
       <IonHeader>
@@ -141,26 +144,18 @@ export const Play: React.FC<PlayProps> = ({
               }
             </IonCol>
           </IonRow>
+          
           <IonRow>
-            { scoreGreaterThanTenThousand &&
-            <IonButton 
-              color="danger">
+            <IonCol>
+             {
+            
+             scoreGreaterThanTenThousand
+            <IonButton color="danger">
               End Game
             </IonButton>
             }
+            </IonCol>
           </IonRow>
-          {
-            setupInfo.chosenPlayers.map(x => (
-              <IonRow>
-                <IonCol>
-                  <IonButton onClick={() => endGame(x)}
-                    color="danger">
-                    {x} End Game
-                  </IonButton>
-                </IonCol>
-              </IonRow>
-            ))
-          }
         </IonGrid>
       </IonContent>
     </IonPage>
