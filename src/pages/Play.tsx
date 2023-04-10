@@ -72,11 +72,11 @@ export const Play: React.FC<PlayProps> = ({
       }
     ])
   };
-  
+
   const scoreGreaterThanTenThousand = () => {
-      playerScores.filter(x => x.scoreInput == 100000)
+    playerScores.filter(x => x.scoreInput == 100000)
   }
-  
+
   return (
     <IonPage>
       <IonHeader>
@@ -91,11 +91,16 @@ export const Play: React.FC<PlayProps> = ({
             <IonCol>
               <h2>Play</h2>
               <p>some data collection stuff goes here</p>
-              <IonImg src="farkle-scoring.png" alt="farkle-scoring-sheet" />
+
+              <IonImg src="./docs/assets/farkleScoring.png" alt="farkle-scoring-sheet" />
               {
                 setupInfo.chosenPlayers.map(x => (
                   <>
+                    <IonRow>
+                      <IonItem lines="none">{x}</IonItem>
+                    </IonRow>
                     <IonRow id='playContainer'>
+
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
                         <IonInput
@@ -144,16 +149,16 @@ export const Play: React.FC<PlayProps> = ({
               }
             </IonCol>
           </IonRow>
-          
+
           <IonRow>
             <IonCol>
-             {
-            
-             scoreGreaterThanTenThousand
-            <IonButton color="danger">
-              End Game
-            </IonButton>
-            }
+              {
+
+                //  scoreGreaterThanTenThousand
+                <IonButton color="danger">
+                  End Game
+                </IonButton>
+              }
             </IonCol>
           </IonRow>
         </IonGrid>
