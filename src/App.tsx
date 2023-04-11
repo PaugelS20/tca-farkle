@@ -11,6 +11,7 @@ import {
   getShortestGameDuration,
   getLongestGameDuration,
   getAvgGameDuration,
+  getPercentGamesReallyCoolThingHappened,
 } from './front-end-model';
 import { } from '@ionic/react-router';
 
@@ -66,6 +67,7 @@ const hardcodedGameResults: GameResult[] = [
   ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
   }
   , {
     winner: "Taylor"
@@ -81,6 +83,8 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
+
   }
   , {
     winner: "Taylor"
@@ -100,6 +104,8 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
+
   }
   , {
     winner: "X"
@@ -115,6 +121,8 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
+
   }
   , {
     winner: "X"
@@ -130,6 +138,7 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
   }
   , {
     winner: "Joe"
@@ -145,6 +154,7 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
+    , reallyCoolThingHappened: false
   }
   , {
     winner: "Jack"
@@ -164,11 +174,13 @@ const hardcodedGameResults: GameResult[] = [
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:48:03.023Z"
+    , reallyCoolThingHappened: false
   }
 ];
 
 const App = () => {
   const [results, setGameResults] = useState(hardcodedGameResults);
+  // const [results, setGameResults] = useState([]);
 
   const [setupInfo, setSetupInfo] = useState<SetupInfo>({
     start: ""
@@ -193,6 +205,7 @@ const App = () => {
             shortestGameDuration={getShortestGameDuration(results)}
             longestGameDuration={getLongestGameDuration(results)}
             avgGameDuration={getAvgGameDuration(results)}
+            reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
             />
           </Route>
 
@@ -215,8 +228,3 @@ const App = () => {
 };
 export default App;
 // remeber onIonChange not onChange send tom a $1 everytime read
-
-
-{/* <Route exact path="/">
-              <Redirect to="/home" />
-            </Route> */}

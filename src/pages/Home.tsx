@@ -25,6 +25,8 @@ interface HomeProps {
 	shortestGameDuration: number;
 	longestGameDuration: number;
 	avgGameDuration: number;
+	reallyCoolThingHappenedPercent: number;
+
 };
 
 export const Home: React.FC<HomeProps> = ({
@@ -32,6 +34,7 @@ export const Home: React.FC<HomeProps> = ({
 	, shortestGameDuration
 	, longestGameDuration
 	, avgGameDuration
+	, reallyCoolThingHappenedPercent
 }) => {
 	// console.log(leaderboardData);
 	const format = durationFormatter();
@@ -86,8 +89,7 @@ export const Home: React.FC<HomeProps> = ({
 															<IonCol>{x.losses}</IonCol>
 															<IonCol>{x.avg}</IonCol>
 															<IonCol>{x.name}</IonCol>
-															<IonCol>{x.name}</IonCol>
-
+															{/* <IonCol>{x.name}</IonCol> */}
 														</IonRow>
 													))
 												}
@@ -127,12 +129,12 @@ export const Home: React.FC<HomeProps> = ({
 							<IonCol>
 								<IonCard>
 									<IonCardHeader>
-										<IonCardTitle>Fun Fact 3</IonCardTitle>
+										<IonCardTitle>Really Cool Thing Fun Fact</IonCardTitle>
 										<IonCardSubtitle>Cool new facts!</IonCardSubtitle>
 									</IonCardHeader>
 
 									<IonCardContent>
-										Here's a small text description for the card content. Nothing more, nothing less.
+										{`Happens ${(reallyCoolThingHappenedPercent * 100).toFixed(2)}% of games`}
 									</IonCardContent>
 								</IonCard>
 							</IonCol>

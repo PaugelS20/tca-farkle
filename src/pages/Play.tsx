@@ -31,10 +31,11 @@ export const Play: React.FC<PlayProps> = ({
   const [playerScores, setPlayerScores] = useState<{
     name: string;
     scoreInput: number;
-  }[]>(setupInfo.chosenPlayers.map(x => ({
-    name: x
-    , scoreInput: 0
-  })));
+  }[]>
+    (setupInfo.chosenPlayers.map(x => ({
+      name: x
+      , scoreInput: 0
+    })));
 
   const [gameTurns, setGameTurns] = useState<{
     name: string;
@@ -42,6 +43,8 @@ export const Play: React.FC<PlayProps> = ({
   }[]>([]);
 
   const h = useHistory();
+
+  const [happened, setHappened] = useState(false);
 
   const endGame = (winner: string) => {
     addGameResultFunc({
@@ -52,6 +55,8 @@ export const Play: React.FC<PlayProps> = ({
       }))
       , start: setupInfo.start
       , end: new Date().toISOString()
+      , reallyCoolThingHappened: happened
+
     });
     h.push("/")
   };
@@ -73,8 +78,20 @@ export const Play: React.FC<PlayProps> = ({
     ])
   };
 
+  // const scoreGreaterThanTenThousand = false;
+
   const scoreGreaterThanTenThousand = () => {
-    playerScores.filter(x => x.scoreInput == 100000)
+    const grouped =
+      gameTurns.reduce(
+        (acc, x) => acc.set(
+          x.name
+          , (acc.get(x.name) ?? 0) + x.points
+        )
+        , new Map<string, number>()
+      );
+    console.log(grouped);
+    return [...grouped].some(x => x[1] >= 10_000);
+
   }
 
   return (
@@ -92,7 +109,7 @@ export const Play: React.FC<PlayProps> = ({
               <h2>Play</h2>
               <p>some data collection stuff goes here</p>
 
-              <IonImg src="./docs/assets/farkleScoring.png" alt="farkle-scoring-sheet" />
+              <IonImg src="../assets/farkleScoring.png" alt="farkle-scoring-sheet" />
               {
                 setupInfo.chosenPlayers.map(x => (
                   <>
@@ -116,6 +133,7 @@ export const Play: React.FC<PlayProps> = ({
                               , scoreInput: Number(e.target.value)
                             }
                           ])}
+                        // onIonChange={}
                         >
                         </IonInput>
 
@@ -153,9 +171,8 @@ export const Play: React.FC<PlayProps> = ({
           <IonRow>
             <IonCol>
               {
-
-                //  scoreGreaterThanTenThousand
-                <IonButton color="danger">
+                scoreGreaterThanTenThousand() &&
+                <IonButton color="danger" onClick={() => endGame}>
                   End Game
                 </IonButton>
               }

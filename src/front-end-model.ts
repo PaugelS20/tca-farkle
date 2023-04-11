@@ -6,6 +6,8 @@ export interface GameResult {
 	players: GamePlayer[];
 	start: string;
 	end: string;
+
+	reallyCoolThingHappened: boolean;
 }
 export interface GamePlayer {
 	name: string;
@@ -102,6 +104,13 @@ export const getAvgGameDuration = (results: GameResult[]) => {
 	);
 	const sum = durations.reduce((acc, x) => acc + x, 0);
 	return sum / durations.length;
+};
+
+export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) => {
+	return results.length
+		? results.filter(x => x.reallyCoolThingHappened).length / results.length
+		: 0
+	;
 };
 
 // npm.runkit.com/human-readable REPL code
