@@ -17,6 +17,7 @@ import {
   IonImg,
 } from '@ionic/react';
 import { GameResult, SetupInfo } from '../front-end-model';
+import { NumericFormat } from 'react-number-format';
 
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;
@@ -56,7 +57,6 @@ export const Play: React.FC<PlayProps> = ({
       , start: setupInfo.start
       , end: new Date().toISOString()
       , reallyCoolThingHappened: happened
-
     });
     h.push("/")
   };
@@ -79,7 +79,6 @@ export const Play: React.FC<PlayProps> = ({
   };
 
   // const scoreGreaterThanTenThousand = false;
-
   const scoreGreaterThanTenThousand = () => {
     const grouped =
       gameTurns.reduce(
@@ -91,7 +90,6 @@ export const Play: React.FC<PlayProps> = ({
       );
     console.log(grouped);
     return [...grouped].some(x => x[1] >= 10_000);
-
   }
 
   return (
@@ -116,28 +114,28 @@ export const Play: React.FC<PlayProps> = ({
                     <IonRow>
                       <IonItem lines="none">{x}</IonItem>
                     </IonRow>
+                    
                     <IonRow id='playContainer'>
-
                       <IonItem>
                         <IonLabel position="floating">Points</IonLabel>
-                        <IonInput
-                          type="number"
-                          placeholder="0"
-                          value={
-                            playerScores.filter(y => y.name == x)[0].scoreInput
-                          }
-                          onIonChange={(e: any) => setPlayerScores([
-                            ...playerScores.filter(y => y.name !== x)
-                            , {
-                              name: x
-                              , scoreInput: Number(e.target.value)
+                          <IonInput
+                            type="number"
+                            // placeholder="0"
+                            value={
+                              playerScores.filter(y => y.name == x)[0].scoreInput
                             }
-                          ])}
-                        // onIonChange={}
-                        >
-                        </IonInput>
+                            onIonChange={(e: any) => setPlayerScores([
+                              ...playerScores.filter(y => y.name !== x)
+                              , {
+                                name: x
+                                , scoreInput: Number(e.target.value)
+                              }
+                            ])}
+                          >
+                          </IonInput>
 
-                        <IonBadge slot="end">{
+                        <IonBadge slot="end">
+                          {
                           gameTurns
                             .filter(
                               y => y.name == x
@@ -146,7 +144,8 @@ export const Play: React.FC<PlayProps> = ({
                               (acc, x) => acc + x.points
                               , 0
                             )
-                        }</IonBadge>
+                          }
+                        </IonBadge>
                       </IonItem>
                     </IonRow>
 
