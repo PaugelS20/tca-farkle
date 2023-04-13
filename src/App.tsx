@@ -58,32 +58,34 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "Tom",
-        turns: []
+       
       },
       {
         name: "Taylor",
-        turns: []
+       
       }
   ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
   }
   , {
     winner: "Taylor"
     , players: [
       {
         name: "Jack",
-        turns: []
+       
       },
       {
         name: "Taylor",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
 
   }
   , {
@@ -91,20 +93,21 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "Tom",
-        turns: []
+       
       },
       {
         name: "Taylor",
-        turns: []
+       
       },
       {
         name: "Jack",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
 
   }
   , {
@@ -112,16 +115,17 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-        turns: []
+       
       },
       {
         name: "Joe",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
 
   }
   , {
@@ -129,52 +133,55 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-        turns: []
+       
       },
       {
         name: "Joe",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
   }
   , {
     winner: "Joe"
     , players: [
       {
         name: "X",
-        turns: []
+       
       },
       {
         name: "Joe",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
   }
   , {
     winner: "Jack"
     , players: [
       {
         name: "X",
-        turns: []
+       
       },
       {
         name: "Joe",
-        turns: []
+       
       },
       {
         name: "Jack",
-        turns: []
+       
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:48:03.023Z"
     , reallyCoolThingHappened: false
+    , turns: []
   }
 ];
 

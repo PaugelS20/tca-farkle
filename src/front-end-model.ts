@@ -8,10 +8,10 @@ export interface GameResult {
 	end: string;
 
 	reallyCoolThingHappened: boolean;
+	turns: any[];
 }
 export interface GamePlayer {
 	name: string;
-	turns: number[];
 }
 export interface LeaderboardPlayer {
 	name: string;
@@ -112,6 +112,46 @@ export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) =>
 		: 0
 	;
 };
+
+/*************************** End Game Functions *********************************/ 
+
+export const getUniquePlayersFromTurns = (turns: any[]) => {
+    
+    const players = turns.map(x => x.name);
+	console.log(players);
+
+    return [
+        ...new Set(players)
+    ];	
+};
+
+export const sumScores = (turns: any[]) => {
+    return turns.reduce(
+        (acc, x) => acc + x.score
+        , 0
+    );
+};
+// !!! Important
+export const getScoresByPlayer = (turns: any[]): {
+    name: string;
+    total: number; //points
+}[] => {
+    
+    const uniquePlayers = getUniquePlayersFromTurns(turns);
+
+    return uniquePlayers.map(x => ({
+        name: x
+        , total: sumScores(turns.filter(y => y.name == x))
+    }));
+};
+
+// export const anyWinners = (turns: any[]):boolean => {
+//     return getScoresByPlayer(turns).some(x => x.total >= 10_000);
+// };
+
+// export const countZeroTurns = (turns: any[]) => {
+//     return turns.filter(x => x.score == 0).length
+// };
 
 // npm.runkit.com/human-readable REPL code
 
