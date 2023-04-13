@@ -26,7 +26,6 @@ interface HomeProps {
 	longestGameDuration: number;
 	avgGameDuration: number;
 	reallyCoolThingHappenedPercent: number;
-
 };
 
 export const Home: React.FC<HomeProps> = ({
