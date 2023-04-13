@@ -6,19 +6,21 @@ export interface GameResult {
 	players: GamePlayer[];
 	start: string;
 	end: string;
-
 	reallyCoolThingHappened: boolean;
 	turns: any[];
 }
+
 export interface GamePlayer {
 	name: string;
 }
+
 export interface LeaderboardPlayer {
 	name: string;
 	wins: number;
 	losses: number;
 	avg: string;
 }
+
 export interface SetupInfo {
 	start: string;
 	chosenPlayers: string[];
@@ -83,7 +85,7 @@ export const calculateLeaderboard: CalculateLeaderboardFunc = (results) => {
 	);
 };
 
-// Getting game duration and avg game length
+// Getting game durations and avg game length
 export const getShortestGameDuration = (results: GameResult[]) =>
 	Math.min(
 		...results.map(
@@ -113,9 +115,13 @@ export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) =>
 	;
 };
 
+export const countZeroTurns = (turns: any[]) => {
+    return turns.filter(x => x.score == 0).length
+};
+
 /*************************** End Game Functions *********************************/ 
 
-export const getUniquePlayersFromTurns = (turns: any[]) => {
+export const getUniquePlayersFromTurns = (turns: GamePlayer[]) => {
     
     const players = turns.map(x => x.name);
 	console.log(players);
@@ -131,6 +137,7 @@ export const sumScores = (turns: any[]) => {
         , 0
     );
 };
+
 // !!! Important
 export const getScoresByPlayer = (turns: any[]): {
     name: string;
@@ -138,20 +145,19 @@ export const getScoresByPlayer = (turns: any[]): {
 }[] => {
     
     const uniquePlayers = getUniquePlayersFromTurns(turns);
-
+	console.log();
+	
     return uniquePlayers.map(x => ({
         name: x
         , total: sumScores(turns.filter(y => y.name == x))
     }));
 };
 
-// export const anyWinners = (turns: any[]):boolean => {
-//     return getScoresByPlayer(turns).some(x => x.total >= 10_000);
-// };
+export const anyWinners = (turns: any[]):boolean => {
+    return getScoresByPlayer(turns).some(x => x.total >= 10_000);
+};
 
-// export const countZeroTurns = (turns: any[]) => {
-//     return turns.filter(x => x.score == 0).length
-// };
+
 
 // npm.runkit.com/human-readable REPL code
 

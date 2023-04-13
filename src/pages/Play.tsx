@@ -16,8 +16,8 @@ import {
   IonBadge,
   IonImg,
 } from '@ionic/react';
-import { GameResult, SetupInfo, getScoresByPlayer, } from '../front-end-model';
-import { NumericFormat } from 'react-number-format';
+import { GameResult, SetupInfo, getScoresByPlayer, anyWinners, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
+// import { NumericFormat } from 'react-number-format';
 import './pageCSS/Play.css';
 import FarkleScoringSheet from '../farkleScoring.png';
 
@@ -32,6 +32,7 @@ export const Play: React.FC<PlayProps> = ({
   , setupInfo
 }) => {
 
+  // Setting up State
   const [playerScores, setPlayerScores] = useState<{
     name: string;
     scoreInput: number;
@@ -46,9 +47,9 @@ export const Play: React.FC<PlayProps> = ({
     points: number;
   }[]>([]);
 
-  const h = useHistory();
-
   const [happened, setHappened] = useState(false);
+
+  const h = useHistory();
 
   const endGame = (winner: string) => {
     addGameResultFunc({
@@ -63,6 +64,9 @@ export const Play: React.FC<PlayProps> = ({
       , turns: gameTurns
     });
     h.push("/")
+    console.log(getScoresByPlayer);
+    console.log(sumScores);
+    console.log(getUniquePlayersFromTurns);
   };
 
   const addFarkle = (player: string) => {
@@ -107,12 +111,13 @@ export const Play: React.FC<PlayProps> = ({
     console.log(grouped);
     return [...grouped].some(x => x[1] >= 10_000);
   }
-  const sumScores = (turns: any[]) => {
-    return turns.reduce(
-      (acc, x) => acc + x.points
-      , 0
-    );
-  };
+  // const sumScores = () => {
+  //  const total = gameTurns.reduce(
+  //     (acc, x) => acc + x.points
+  //     , 0
+  //   ); 
+  //   return console.log(total);
+  // };
 
   return (
     <IonPage>

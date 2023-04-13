@@ -12,6 +12,7 @@ import {
   getLongestGameDuration,
   getAvgGameDuration,
   getPercentGamesReallyCoolThingHappened,
+  countZeroTurns,
 } from './front-end-model';
 import { } from '@ionic/react-router';
 
@@ -207,12 +208,14 @@ const App = () => {
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
-            <Home leaderboardData
-            ={calculateLeaderboard(results)} 
+            <Home 
+            leaderboardData={calculateLeaderboard(results)} 
             shortestGameDuration={getShortestGameDuration(results)}
             longestGameDuration={getLongestGameDuration(results)}
             avgGameDuration={getAvgGameDuration(results)}
             reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
+            countZeroTurns={countZeroTurns(results)}
+
             />
           </Route>
 
