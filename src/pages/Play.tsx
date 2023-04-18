@@ -17,10 +17,10 @@ import {
   IonImg,
 } from '@ionic/react';
 import { GameResult, SetupInfo, getScoresByPlayer, anyWinners, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
-// import { NumericFormat } from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
+
 import './pageCSS/Play.css';
 import FarkleScoringSheet from '../farkleScoring.png';
-
 
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;
@@ -125,20 +125,12 @@ export const Play: React.FC<PlayProps> = ({
     if (
       [...grouped].some(x => x[1] >= 10_000)
     ) {
-     
-     const possibleWinners = [...grouped].filter(x => x[1] >= 10_000)
+
+      const possibleWinners = [...grouped].filter(x => x[1] >= 10_000)
       return possibleWinners[0][0];
-    } 
+    }
     return "";
   }
-
-  // const sumScores = () => {
-  //  const total = gameTurns.reduce(
-  //     (acc, x) => acc + x.points
-  //     , 0
-  //   ); 
-  //   return console.log(total);
-  // };
 
   return (
     <IonPage>
@@ -181,6 +173,12 @@ export const Play: React.FC<PlayProps> = ({
                         >
                         </IonInput>
 
+                        {/* <NumericFormat
+                          value={
+                            playerScores.filter(y => y.name == x)[0].scoreInput
+                          }
+                          customInput={IonInput} /> */}
+
                         <IonBadge slot="end">
                           {
                             gameTurns
@@ -193,6 +191,7 @@ export const Play: React.FC<PlayProps> = ({
                               )
                           }
                         </IonBadge>
+
                       </IonItem>
                     </IonRow>
 
