@@ -51,9 +51,9 @@ export const Play: React.FC<PlayProps> = ({
 
   const h = useHistory();
 
-  const endGame = (winner: string) => {
+  const endGame = () => {
     addGameResultFunc({
-      winner: winner,
+      winner: getWinner(),
       players: setupInfo.chosenPlayers.map(x => ({
         name: x
 
@@ -111,6 +111,27 @@ export const Play: React.FC<PlayProps> = ({
     console.log(grouped);
     return [...grouped].some(x => x[1] >= 10_000);
   }
+
+  const getWinner = () => {
+    const grouped =
+      gameTurns.reduce(
+        (acc, x) => acc.set(
+          x.name
+          , (acc.get(x.name) ?? 0) + x.points
+        )
+        , new Map<string, number>()
+      );
+    console.log(grouped);
+    if (
+      [...grouped].some(x => x[1] >= 10_000)
+    ) {
+     
+     const possibleWinners = [...grouped].filter(x => x[1] >= 10_000)
+      return possibleWinners[0][0];
+    } 
+    return "";
+  }
+
   // const sumScores = () => {
   //  const total = gameTurns.reduce(
   //     (acc, x) => acc + x.points
@@ -197,7 +218,7 @@ export const Play: React.FC<PlayProps> = ({
             <IonCol>
               {
                 scoreGreaterThanTenThousand() &&
-                <IonButton color="danger" onClick={() => endGame}>
+                <IonButton color="danger" onClick={endGame}>
                   End Game
                 </IonButton>
               }
