@@ -14,7 +14,7 @@ import {
   getPercentGamesReallyCoolThingHappened,
   countZeroTurns,
 } from './front-end-model';
-import { } from '@ionic/react-router';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,22 +36,6 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 setupIonicReact();
 
-// const hardcodedGameResults: GameResult[] = [
-//   {
-//     winner: "Sam"
-//     , players: [
-//       {
-//         name: "Sam"
-//         , turns: [0, 0, 500, 2500, 0, 0, 0, 250, 100, 350, 0 , 0, 350]
-//       }
-//       , {
-//         name: "Tom"
-//         , turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-//       }
-//     ]
-//   }
-// ];
-
 
 const hardcodedGameResults: GameResult[] = [
   {
@@ -59,13 +43,13 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "Tom",
-       
+
       },
       {
         name: "Taylor",
-       
+
       }
-  ]
+    ]
     , start: "2023-03-23T17:38:03.023Z"
     , end: "2023-03-23T17:40:03.023Z"
     , reallyCoolThingHappened: false
@@ -76,11 +60,11 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "Jack",
-       
+
       },
       {
         name: "Taylor",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -94,15 +78,15 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "Tom",
-       
+
       },
       {
         name: "Taylor",
-       
+
       },
       {
         name: "Jack",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -116,11 +100,11 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-       
+
       },
       {
         name: "Joe",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -134,11 +118,11 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-       
+
       },
       {
         name: "Joe",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -151,11 +135,11 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-       
+
       },
       {
         name: "Joe",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -168,15 +152,15 @@ const hardcodedGameResults: GameResult[] = [
     , players: [
       {
         name: "X",
-       
+
       },
       {
         name: "Joe",
-       
+
       },
       {
         name: "Jack",
-       
+
       }
     ]
     , start: "2023-03-23T17:38:03.023Z"
@@ -208,13 +192,13 @@ const App = () => {
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
-            <Home 
-            leaderboardData={calculateLeaderboard(results)} 
-            shortestGameDuration={getShortestGameDuration(results)}
-            longestGameDuration={getLongestGameDuration(results)}
-            avgGameDuration={getAvgGameDuration(results)}
-            reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
-            countZeroTurns={countZeroTurns(results)}
+            <Home
+              leaderboardData={calculateLeaderboard(results)}
+              shortestGameDuration={getShortestGameDuration(results)}
+              longestGameDuration={getLongestGameDuration(results)}
+              avgGameDuration={getAvgGameDuration(results)}
+              reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
+              countZeroTurns={countZeroTurns(results)}
 
             />
           </Route>

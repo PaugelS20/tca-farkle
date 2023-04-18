@@ -34,7 +34,11 @@ export const Setup: React.FC<SetupProps> = ({
   , setSetupInfo
 }) => {
 
+  // 
+  // State hooks...
+  // 
   const h = useHistory();
+  const [newPlayerName, setNewPlayerName] = useState("");
   const [chosenPlayers, setChosenPlayers] = useState(
     previousPlayers.map(x => ({
       name: x
@@ -42,15 +46,12 @@ export const Setup: React.FC<SetupProps> = ({
     }))
   );
 
-  const [newPlayerName, setNewPlayerName] = useState("");
-
   const togglePlayer = (name: string) => setChosenPlayers(
     chosenPlayers.map(x => ({
       ...x
       , checked: x.name == name ? !x.checked : x.checked
     }))
   );
-
 
   const startGame = () => {
     console.log(chosenPlayers);
@@ -106,13 +107,13 @@ export const Setup: React.FC<SetupProps> = ({
                   id='newPlayerNameInput'
                   fill="solid"
                 >
-                    <IonLabel position="floating">Add Player</IonLabel>
-                      <IonInput
-                        placeholder="Enter text"
-                        value={newPlayerName}
-                        onIonChange={(e: any) => setNewPlayerName(e.target.value)}
-                      >
-                      </IonInput>
+                  <IonLabel position="floating">Add Player</IonLabel>
+                  <IonInput
+                    placeholder="Enter text"
+                    value={newPlayerName}
+                    onIonChange={(e: any) => setNewPlayerName(e.target.value)} 
+                  >
+                  </IonInput>
                 </IonItem>
 
                 <IonFabButton size="small" onClick={validateAndAddNewPlayer}>
@@ -127,7 +128,7 @@ export const Setup: React.FC<SetupProps> = ({
                 <IonCol>
                   <IonList>
                     <IonItem>
-                      <IonCheckbox slot="start" 
+                      <IonCheckbox slot="start"
                         checked={x.checked}
                         onIonChange={() => togglePlayer(x.name)}>{x.name}
                       </IonCheckbox>

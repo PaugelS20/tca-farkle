@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
 	IonContent,
 	IonHeader,
@@ -13,12 +14,16 @@ import {
 	IonGrid,
 	IonCol,
 	IonRow,
+	IonItem,
+	IonInput,
 } from '@ionic/react';
 // import { MainContent } from '../components/MainContent';
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import './pageCSS/Home.css';
+import localforage from "localforage";
+
 
 interface HomeProps {
 	leaderboardData: LeaderboardPlayer[];
@@ -37,6 +42,45 @@ export const Home: React.FC<HomeProps> = ({
 	, reallyCoolThingHappenedPercent
 	, countZeroTurns
 }) => {
+
+	// 
+	// State hooks...
+	// 
+	const [emailKey, setEmailKey] = useState("");
+
+	// 
+	// useEffect hook
+	// 
+	useEffect(
+		() => {
+			const loadEmailKey = async () => {
+				try {
+					setEmailKey(
+						await localforage.getItem("emailKey") ?? ""
+					);
+				} catch (err) {
+					console.error(err);
+				}
+			};
+			loadEmailKey();
+		}, []
+	);
+
+	//
+	// Helper functions...
+	//
+	const saveEmailKey = async () => {
+		try {
+			await localforage.setItem(
+				"emailKey"
+				, emailKey
+			);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+
 	// console.log(leaderboardData);
 	const format = durationFormatter();
 
@@ -101,6 +145,36 @@ export const Home: React.FC<HomeProps> = ({
 						</IonCol>
 					</IonRow>
 
+					<IonRow>
+						<IonCol>
+							<IonCard>
+								<IonCardHeader>
+									<IonCardTitle>Players Account</IonCardTitle>
+									<IonCardSubtitle>Add Your Email</IonCardSubtitle>
+								</IonCardHeader>
+
+								<IonCardContent>
+									<IonRow>
+										<IonItem>
+											<IonInput
+												type='text'
+												placeholder="Enter new player Email"
+												value={emailKey}
+												onIonChange={(e: any) => setEmailKey(e.target.value)}
+											>
+											</IonInput>
+										</IonItem>
+
+										<IonButton size="small" onClick={saveEmailKey}>
+											Add
+											{/* <IonIcon icon={personAddOutline}></IonIcon> */}
+										</IonButton>
+									</IonRow>
+								</IonCardContent>
+							</IonCard>
+						</IonCol>
+					</IonRow>
+
 					{/* Game lengths */}
 					<IonRow>
 						<IonCol>
@@ -157,8 +231,8 @@ export const Home: React.FC<HomeProps> = ({
 							</IonCard>
 						</IonCol>
 					</IonRow>
-
-					<IonRow>
+	{/* more dummy cards to add more fun facts */}
+					{/* <IonRow>
 						<IonCol>
 							<IonCard>
 								<IonCardHeader>
@@ -186,7 +260,7 @@ export const Home: React.FC<HomeProps> = ({
 								</IonCardContent>
 							</IonCard>
 						</IonCol>
-					</IonRow>
+					</IonRow> */}
 
 					<IonRow>
 						<IonCol>
@@ -196,6 +270,6 @@ export const Home: React.FC<HomeProps> = ({
 				</IonGrid>
 				{/* <MainContent /> */}
 			</IonContent>
-		</IonPage>
+		</IonPage >
 	);
 };
