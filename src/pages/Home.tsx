@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
 	IonContent,
 	IonHeader,
@@ -21,6 +22,7 @@ import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import './pageCSS/Home.css';
+import localforage from "localforage";
 
 
 interface HomeProps {
@@ -30,6 +32,8 @@ interface HomeProps {
 	avgGameDuration: number;
 	reallyCoolThingHappenedPercent: number;
 	countZeroTurns: number;
+	saveEmailKeyFunc: any;
+	currentEmail: string;
 };
 
 export const Home: React.FC<HomeProps> = ({
@@ -39,8 +43,13 @@ export const Home: React.FC<HomeProps> = ({
 	, avgGameDuration
 	, reallyCoolThingHappenedPercent
 	, countZeroTurns
+	, saveEmailKeyFunc
+	, currentEmail
 }) => {
+	console.log(currentEmail);
+	
 
+	const [emailKeyInput, setEmailKeyInput] = useState(currentEmail);
 
 
 	// console.log(leaderboardData);
@@ -108,6 +117,38 @@ export const Home: React.FC<HomeProps> = ({
 					</IonRow>
 
 					
+						<IonRow>
+							<IonCol>
+								<IonCard>
+									<IonCardHeader>
+										<IonCardTitle>Players Account</IonCardTitle>
+										<IonCardSubtitle>Add Your Email</IonCardSubtitle>
+									</IonCardHeader>
+
+									<IonCardContent>
+										<IonRow>
+											<IonItem>
+												<IonInput
+													type='text'
+													placeholder="Enter new player Email"
+													value={emailKeyInput}
+													onIonChange={(e: any) => setEmailKeyInput(e.target.value)}
+												>
+												</IonInput>
+
+
+												<IonButton size="small" onClick={()=> saveEmailKeyFunc(emailKeyInput)}>
+													Save
+												</IonButton>
+											</IonItem>
+										</IonRow>
+									</IonCardContent>
+								</IonCard>
+							</IonCol>
+						</IonRow>
+				
+
+
 					{/* Game lengths */}
 					<IonRow>
 						<IonCol>
@@ -119,17 +160,15 @@ export const Home: React.FC<HomeProps> = ({
 
 								<IonCardContent>
 									<IonRow>
-										{`Shortest game ever: ${
-											Number.isInteger(shortestGameDuration) 
-											? format(shortestGameDuration) 
-											: "n/a"}`
+										{`Shortest game ever: ${Number.isInteger(shortestGameDuration)
+												? format(shortestGameDuration)
+												: "n/a"}`
 										}
 									</IonRow>
 									<IonRow>
-										{`Longest game ever: ${
-											Number.isInteger(longestGameDuration) 
-											? format(longestGameDuration) 
-											: "n/a"}`
+										{`Longest game ever: ${Number.isInteger(longestGameDuration)
+												? format(longestGameDuration)
+												: "n/a"}`
 										}
 									</IonRow>
 									<IonRow>
@@ -172,7 +211,7 @@ export const Home: React.FC<HomeProps> = ({
 							</IonCard>
 						</IonCol>
 					</IonRow>
-					
+
 					{/* more dummy cards to add more fun facts */}
 					{/* <IonRow>
 						<IonCol>

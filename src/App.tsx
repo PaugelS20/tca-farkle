@@ -198,7 +198,6 @@ const App = () => {
   // 
   // State hooks...
   // 
-  const [emailKeyInput, setEmailKeyInput] = useState("");
   const [emailKeySaved, setEmailKeySaved] = useState("");
 
   // 
@@ -223,7 +222,6 @@ const App = () => {
           }
 
           if (!ignore) {
-            setEmailKeyInput(ek);
             setEmailKeySaved(ek);            
           }
         } catch (err) {
@@ -241,14 +239,14 @@ const App = () => {
   //
   // Helper functions...
   //
-  const saveEmailKey = async () => {
+  const saveEmailKey = async (email: string) => {
     try {
       await localforage.setItem(
         "emailKey"
-        , emailKeyInput
+        , email
       );
 
-      setEmailKeySaved(emailKeyInput);
+      setEmailKeySaved(email);
     }
     catch (err) {
       console.error(err);
@@ -278,38 +276,6 @@ const App = () => {
 
   return (
     <IonApp>
-      <IonGrid>
-        <IonRow>
-          <IonCol>
-            <IonCard>
-              <IonCardHeader>
-                <IonCardTitle>Players Account</IonCardTitle>
-                <IonCardSubtitle>Add Your Email</IonCardSubtitle>
-              </IonCardHeader>
-
-              <IonCardContent>
-                <IonRow>
-                  <IonItem>
-                    <IonInput
-                      type='text'
-                      placeholder="Enter new player Email"
-                      value={emailKeyInput}
-                      onIonChange={(e: any) => setEmailKeyInput(e.target.value)}
-                    >
-                    </IonInput>
-                  </IonItem>
-
-                  <IonButton size="small" onClick={saveEmailKey}>
-                    Add
-                  </IonButton>
-                </IonRow>
-              </IonCardContent>
-            </IonCard>
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-
-
 
       <IonReactHashRouter>
         <IonRouterOutlet>
@@ -321,7 +287,8 @@ const App = () => {
               avgGameDuration={getAvgGameDuration(results)}
               reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
               countZeroTurns={countZeroTurns(results)}
-
+              saveEmailKeyFunc={saveEmailKey}
+              currentEmail={emailKeySaved}
             />
           </Route>
 
