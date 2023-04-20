@@ -16,7 +16,7 @@ import {
   IonBadge,
   IonImg,
 } from '@ionic/react';
-import { GameResult, SetupInfo, getScoresByPlayer, anyWinners, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
+import { GameResult, SetupInfo, getScoresByPlayer, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
 import { NumericFormat } from 'react-number-format';
 
 import './pageCSS/Play.css';
