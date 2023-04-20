@@ -186,13 +186,21 @@ export const Home: React.FC<HomeProps> = ({
 
 								<IonCardContent>
 									<IonRow>
-										{`Shortest game ever ${format(shortestGameDuration)}`}
+										{`Shortest game ever: ${
+											Number.isInteger(shortestGameDuration) 
+											? format(shortestGameDuration) 
+											: "n/a"}`
+										}
 									</IonRow>
 									<IonRow>
-										{`Longest game ever ${format(longestGameDuration)}`}
+										{`Longest game ever: ${
+											Number.isInteger(longestGameDuration) 
+											? format(longestGameDuration) 
+											: "n/a"}`
+										}
 									</IonRow>
 									<IonRow>
-										{`Average game time ${format(avgGameDuration)}`}
+										{`Average game time: ${format(avgGameDuration)}`}
 									</IonRow>
 
 								</IonCardContent>
@@ -231,7 +239,8 @@ export const Home: React.FC<HomeProps> = ({
 							</IonCard>
 						</IonCol>
 					</IonRow>
-	{/* more dummy cards to add more fun facts */}
+					
+					{/* more dummy cards to add more fun facts */}
 					{/* <IonRow>
 						<IonCol>
 							<IonCard>

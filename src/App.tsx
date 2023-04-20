@@ -37,141 +37,141 @@ import './theme/variables.css';
 setupIonicReact();
 
 
-const hardcodedGameResults: GameResult[] = [
-  {
-    winner: "Tom"
-    , players: [
-      {
-        name: "Tom",
+// const hardcodedGameResults: GameResult[] = [
+//   {
+//     winner: "Tom"
+//     , players: [
+//       {
+//         name: "Tom",
 
-      },
-      {
-        name: "Taylor",
+//       },
+//       {
+//         name: "Taylor",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
-  }
-  , {
-    winner: "Taylor"
-    , players: [
-      {
-        name: "Jack",
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
+//   }
+//   , {
+//     winner: "Taylor"
+//     , players: [
+//       {
+//         name: "Jack",
 
-      },
-      {
-        name: "Taylor",
+//       },
+//       {
+//         name: "Taylor",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
 
-  }
-  , {
-    winner: "Taylor"
-    , players: [
-      {
-        name: "Tom",
+//   }
+//   , {
+//     winner: "Taylor"
+//     , players: [
+//       {
+//         name: "Tom",
 
-      },
-      {
-        name: "Taylor",
+//       },
+//       {
+//         name: "Taylor",
 
-      },
-      {
-        name: "Jack",
+//       },
+//       {
+//         name: "Jack",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
 
-  }
-  , {
-    winner: "X"
-    , players: [
-      {
-        name: "X",
+//   }
+//   , {
+//     winner: "X"
+//     , players: [
+//       {
+//         name: "X",
 
-      },
-      {
-        name: "Joe",
+//       },
+//       {
+//         name: "Joe",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
 
-  }
-  , {
-    winner: "X"
-    , players: [
-      {
-        name: "X",
+//   }
+//   , {
+//     winner: "X"
+//     , players: [
+//       {
+//         name: "X",
 
-      },
-      {
-        name: "Joe",
+//       },
+//       {
+//         name: "Joe",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
-  }
-  , {
-    winner: "Joe"
-    , players: [
-      {
-        name: "X",
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
+//   }
+//   , {
+//     winner: "Joe"
+//     , players: [
+//       {
+//         name: "X",
 
-      },
-      {
-        name: "Joe",
+//       },
+//       {
+//         name: "Joe",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:40:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
-  }
-  , {
-    winner: "Jack"
-    , players: [
-      {
-        name: "X",
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:40:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
+//   }
+//   , {
+//     winner: "Jack"
+//     , players: [
+//       {
+//         name: "X",
 
-      },
-      {
-        name: "Joe",
+//       },
+//       {
+//         name: "Joe",
 
-      },
-      {
-        name: "Jack",
+//       },
+//       {
+//         name: "Jack",
 
-      }
-    ]
-    , start: "2023-03-23T17:38:03.023Z"
-    , end: "2023-03-23T17:48:03.023Z"
-    , reallyCoolThingHappened: false
-    , turns: []
-  }
-];
+//       }
+//     ]
+//     , start: "2023-03-23T17:38:03.023Z"
+//     , end: "2023-03-23T17:48:03.023Z"
+//     , reallyCoolThingHappened: false
+//     , turns: []
+//   }
+// ];
 
 const App = () => {
-  const [results, setGameResults] = useState(hardcodedGameResults);
+  const [results, setGameResults] = useState<GameResult[]>([]);
   // const [results, setGameResults] = useState([]);
 
   const [setupInfo, setSetupInfo] = useState<SetupInfo>({
