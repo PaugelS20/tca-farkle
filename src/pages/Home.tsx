@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import {
 	IonContent,
 	IonHeader,
@@ -22,7 +21,6 @@ import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import './pageCSS/Home.css';
-import localforage from "localforage";
 
 
 interface HomeProps {
@@ -43,42 +41,6 @@ export const Home: React.FC<HomeProps> = ({
 	, countZeroTurns
 }) => {
 
-	// 
-	// State hooks...
-	// 
-	const [emailKey, setEmailKey] = useState("");
-
-	// 
-	// useEffect hook
-	// 
-	useEffect(
-		() => {
-			const loadEmailKey = async () => {
-				try {
-					setEmailKey(
-						await localforage.getItem("emailKey") ?? ""
-					);
-				} catch (err) {
-					console.error(err);
-				}
-			};
-			loadEmailKey();
-		}, []
-	);
-
-	//
-	// Helper functions...
-	//
-	const saveEmailKey = async () => {
-		try {
-			await localforage.setItem(
-				"emailKey"
-				, emailKey
-			);
-		} catch (err) {
-			console.error(err);
-		}
-	};
 
 
 	// console.log(leaderboardData);
@@ -145,36 +107,7 @@ export const Home: React.FC<HomeProps> = ({
 						</IonCol>
 					</IonRow>
 
-					<IonRow>
-						<IonCol>
-							<IonCard>
-								<IonCardHeader>
-									<IonCardTitle>Players Account</IonCardTitle>
-									<IonCardSubtitle>Add Your Email</IonCardSubtitle>
-								</IonCardHeader>
-
-								<IonCardContent>
-									<IonRow>
-										<IonItem>
-											<IonInput
-												type='text'
-												placeholder="Enter new player Email"
-												value={emailKey}
-												onIonChange={(e: any) => setEmailKey(e.target.value)}
-											>
-											</IonInput>
-										</IonItem>
-
-										<IonButton size="small" onClick={saveEmailKey}>
-											Add
-											{/* <IonIcon icon={personAddOutline}></IonIcon> */}
-										</IonButton>
-									</IonRow>
-								</IonCardContent>
-							</IonCard>
-						</IonCol>
-					</IonRow>
-
+					
 					{/* Game lengths */}
 					<IonRow>
 						<IonCol>

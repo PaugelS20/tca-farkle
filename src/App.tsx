@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactHashRouter } from '@ionic/react-router';
@@ -14,6 +14,22 @@ import {
   getPercentGamesReallyCoolThingHappened,
   countZeroTurns,
 } from './front-end-model';
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonGrid,
+  IonCol,
+  IonRow,
+  IonItem,
+  IonInput,
+} from '@ionic/react';
+import localforage from "localforage";
+import { loadGamesFromCloud, saveGameToCloud } from "./tca-cloud-api";
+
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -179,16 +195,122 @@ const App = () => {
     , chosenPlayers: []
   });
 
+  // 
+  // State hooks...
+  // 
+  const [emailKeyInput, setEmailKeyInput] = useState("");
+  const [emailKeySaved, setEmailKeySaved] = useState("");
+
+  // 
+  // useEffect hook
+  // 
+  useEffect(
+    () => {
+      const loadEmailKeyAndGameResults = async () => {
+
+        try {
+          const ek = String(await localforage.getItem("emailKey")) ?? "";
+          
+          if (ek.length > 0) {
+            const resultsFromCloud = await loadGamesFromCloud(
+              ek
+              , "tca-farkle"
+            );
+
+            if (!ignore) {
+              setGameResults(resultsFromCloud);
+            }
+          }
+
+          if (!ignore) {
+            setEmailKeyInput(ek);
+            setEmailKeySaved(ek);            
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      let ignore = false;
+      loadEmailKeyAndGameResults();
+      return () => {
+        ignore = true;
+      };
+    }, [emailKeySaved]
+  );
+
+  //
+  // Helper functions...
+  //
+  const saveEmailKey = async () => {
+    try {
+      await localforage.setItem(
+        "emailKey"
+        , emailKeyInput
+      );
+
+      setEmailKeySaved(emailKeyInput);
+    }
+    catch (err) {
+      console.error(err);
+    }
+  };
+
 
   const addGameResult = (r: GameResult) => {
+    // Save the game result to the cloud
+    saveGameToCloud(
+      emailKeySaved
+      , "tca-farkle"
+      , r.end
+      , r
+    );
+
     setGameResults([
       ...results
       , r
     ]);
   };
 
+
+	//
+	// JSX
+	//
+
   return (
     <IonApp>
+      <IonGrid>
+        <IonRow>
+          <IonCol>
+            <IonCard>
+              <IonCardHeader>
+                <IonCardTitle>Players Account</IonCardTitle>
+                <IonCardSubtitle>Add Your Email</IonCardSubtitle>
+              </IonCardHeader>
+
+              <IonCardContent>
+                <IonRow>
+                  <IonItem>
+                    <IonInput
+                      type='text'
+                      placeholder="Enter new player Email"
+                      value={emailKeyInput}
+                      onIonChange={(e: any) => setEmailKeyInput(e.target.value)}
+                    >
+                    </IonInput>
+                  </IonItem>
+
+                  <IonButton size="small" onClick={saveEmailKey}>
+                    Add
+                  </IonButton>
+                </IonRow>
+              </IonCardContent>
+            </IonCard>
+          </IonCol>
+        </IonRow>
+      </IonGrid>
+
+
+
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
