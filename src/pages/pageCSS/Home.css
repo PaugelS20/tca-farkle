@@ -9,6 +9,10 @@
 	border-bottom: solid rgb(146, 143, 143) 0.1em;
     background: translucent;
 }
+.accountPerson {
+	padding-right: 0.2em;
+}
+
 /* ion-title.title-large {
 	color: #c897d8;
 }
