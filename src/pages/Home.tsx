@@ -16,13 +16,16 @@ import {
 	IonRow,
 	IonItem,
 	IonInput,
+	IonIcon,
 } from '@ionic/react';
+import { moon } from 'ionicons/icons';
 // import { MainContent } from '../components/MainContent';
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import './pageCSS/Home.css';
 import "../components/darkMode.css";
+
 
 interface HomeProps {
 	leaderboardData: LeaderboardPlayer[];
@@ -141,7 +144,10 @@ export const Home: React.FC<HomeProps> = ({
 
 									<IonCardContent>
 										<IonRow>
-											<IonButton onClick={toggleTheme}>Dark Mode</IonButton>
+											<IonButton color="tertiary" onClick={toggleTheme}>
+												Dark Mode
+												<IonIcon slot="start" icon={moon}></IonIcon>
+											</IonButton>
 										</IonRow>
 									</IonCardContent>
 								</IonCard>
@@ -240,39 +246,6 @@ export const Home: React.FC<HomeProps> = ({
 								</IonCard>
 							</IonCol>
 						</IonRow>
-
-
-
-						{/* more dummy cards to add more fun facts */}
-						{/* <IonRow>
-						<IonCol>
-							<IonCard>
-								<IonCardHeader>
-									<IonCardTitle>Fun Fact 5</IonCardTitle>
-									<IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-								</IonCardHeader>
-
-								<IonCardContent>
-									Here's a small text description for the card content. Nothing more, nothing less.
-								</IonCardContent>
-							</IonCard>
-						</IonCol>
-					</IonRow>
-
-					<IonRow>
-						<IonCol>
-							<IonCard>
-								<IonCardHeader>
-									<IonCardTitle>Fun Fact 6</IonCardTitle>
-									<IonCardSubtitle>Cool new facts!</IonCardSubtitle>
-								</IonCardHeader>
-
-								<IonCardContent>
-									Here's a small text description for the card content. Nothing more, nothing less.
-								</IonCardContent>
-							</IonCard>
-						</IonCol>
-					</IonRow> */}
 
 						<IonRow>
 							<IonCol>
