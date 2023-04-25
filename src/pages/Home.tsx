@@ -23,7 +23,7 @@ import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import './pageCSS/Home.css';
 import localforage from "localforage";
-
+import { DarkMode  } from "../components/DarkMode";
 
 interface HomeProps {
 	leaderboardData: LeaderboardPlayer[];
@@ -64,6 +64,7 @@ export const Home: React.FC<HomeProps> = ({
 					<IonToolbar>
 						<IonTitle size="large">Farkle App</IonTitle>
 					</IonToolbar>
+					<DarkMode/>
 				</IonHeader>
 
 				<IonGrid>

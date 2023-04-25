@@ -14,23 +14,9 @@ import {
   getPercentGamesReallyCoolThingHappened,
   countZeroTurns,
 } from './front-end-model';
-import {
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonGrid,
-  IonCol,
-  IonRow,
-  IonItem,
-  IonInput,
-} from '@ionic/react';
+
 import localforage from "localforage";
 import { loadGamesFromCloud, saveGameToCloud } from "./tca-cloud-api";
-
-
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -209,7 +195,7 @@ const App = () => {
 
         try {
           const ek = String(await localforage.getItem("emailKey")) ?? "";
-          
+
           if (ek.length > 0) {
             const resultsFromCloud = await loadGamesFromCloud(
               ek
@@ -222,7 +208,7 @@ const App = () => {
           }
 
           if (!ignore) {
-            setEmailKeySaved(ek);            
+            setEmailKeySaved(ek);
           }
         } catch (err) {
           console.error(err);
@@ -253,7 +239,6 @@ const App = () => {
     }
   };
 
-
   const addGameResult = (r: GameResult) => {
     // Save the game result to the cloud
     saveGameToCloud(
@@ -269,10 +254,9 @@ const App = () => {
     ]);
   };
 
-
-	//
-	// JSX
-	//
+  //
+  // JSX
+  //
 
   return (
     <IonApp>
@@ -311,3 +295,4 @@ const App = () => {
 };
 export default App;
 // remeber onIonChange not onChange send tom a $1 everytime read
+
