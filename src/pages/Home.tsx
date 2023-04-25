@@ -18,7 +18,7 @@ import {
 	IonInput,
 	IonIcon,
 } from '@ionic/react';
-import { moon } from 'ionicons/icons';
+import { moon, personCircle } from 'ionicons/icons';
 // import { MainContent } from '../components/MainContent';
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
@@ -143,7 +143,7 @@ export const Home: React.FC<HomeProps> = ({
 									</IonCardHeader>
 
 									<IonCardContent>
-										<IonRow>
+										<IonRow class='darkModeRow'>
 											<IonButton color="tertiary" onClick={toggleTheme}>
 												Dark Mode
 												<IonIcon slot="start" icon={moon}></IonIcon>
@@ -166,6 +166,7 @@ export const Home: React.FC<HomeProps> = ({
 									<IonCardContent>
 										<IonRow>
 											<IonItem>
+												<IonIcon icon={personCircle}></IonIcon>
 												<IonInput
 													type='text'
 													placeholder="Enter new player Email"
