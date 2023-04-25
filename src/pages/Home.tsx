@@ -33,10 +33,10 @@ interface HomeProps {
 	longestGameDuration: number;
 	avgGameDuration: number;
 	reallyCoolThingHappenedPercent: number;
-	countZeroTurns: number;
 	saveEmailKeyFunc: any;
 	emailKeyInput: string;
 	setEmailKeyInput: any;
+	avgFarklesPerGame: number;
 };
 
 export const Home: React.FC<HomeProps> = ({
@@ -45,10 +45,10 @@ export const Home: React.FC<HomeProps> = ({
 	, longestGameDuration
 	, avgGameDuration
 	, reallyCoolThingHappenedPercent
-	, countZeroTurns
 	, saveEmailKeyFunc
 	, emailKeyInput
 	, setEmailKeyInput
+	, avgFarklesPerGame
 }) => {
 
 	const [theme, setTheme] = useState('light');
@@ -139,7 +139,7 @@ export const Home: React.FC<HomeProps> = ({
 								<IonCard>
 									<IonCardHeader>
 										<IonCardTitle>Switch to Dark Mode</IonCardTitle>
-										<IonCardSubtitle>New Feature</IonCardSubtitle>
+										<IonCardSubtitle id='newFeature'>New Feature*</IonCardSubtitle>
 									</IonCardHeader>
 
 									<IonCardContent>
@@ -226,7 +226,7 @@ export const Home: React.FC<HomeProps> = ({
 									</IonCardHeader>
 
 									<IonCardContent>
-										{`Average Farkles ${(countZeroTurns)}`}
+										{`Average Farkles ${(avgFarklesPerGame)}`}
 									</IonCardContent>
 								</IonCard>
 							</IonCol>

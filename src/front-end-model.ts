@@ -115,8 +115,19 @@ export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) =>
 	;
 };
 
-export const countZeroTurns = (turns: any[]) => {
-    return turns.filter(x => x.score == 0).length
+export const calcAvgFarklesPerGame = (results: GameResult[]) => {
+    console.log('here', results);
+
+	const totalFarkles = 10;
+	
+	results.flatMap((x) => x.turns.map((y) => y.farkle));
+	
+    console.log(results);
+
+	
+	return results.length > 0 
+	? totalFarkles / results.length
+	: 0
 };
 
 /*************************** End Game Functions *********************************/ 

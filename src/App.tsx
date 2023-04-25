@@ -12,7 +12,7 @@ import {
   getLongestGameDuration,
   getAvgGameDuration,
   getPercentGamesReallyCoolThingHappened,
-  countZeroTurns,
+  calcAvgFarklesPerGame,
 } from './front-end-model';
 
 import localforage from "localforage";
@@ -131,7 +131,6 @@ const App = () => {
 
   return (
     <IonApp>
-      
       <IonReactHashRouter>
         <IonRouterOutlet>
           <Route exact path="/">
@@ -141,7 +140,7 @@ const App = () => {
               longestGameDuration={getLongestGameDuration(results)}
               avgGameDuration={getAvgGameDuration(results)}
               reallyCoolThingHappenedPercent={getPercentGamesReallyCoolThingHappened(results)}
-              countZeroTurns={countZeroTurns(results)}
+              avgFarklesPerGame={calcAvgFarklesPerGame(results)}
               saveEmailKeyFunc={saveEmailKey}
               emailKeyInput={emailKeyInput}
               setEmailKeyInput={setEmailKeyInput}
