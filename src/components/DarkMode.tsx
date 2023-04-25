@@ -22,6 +22,7 @@
 // }
 
 import { useState, useEffect } from 'react';
+import "./darkMode.css";
 
 export const DarkMode = () => {
     const [theme, setTheme] = useState('light');
@@ -42,8 +43,7 @@ export const DarkMode = () => {
 
     return (
         <div className={`App ${theme}`}>
-            <button onClick={toggleTheme}>Toggle Theme</button>
-            <h1>Hello, world!</h1>
+            <button onClick={toggleTheme}>Dark Mode</button>
         </div>
     );
 }
