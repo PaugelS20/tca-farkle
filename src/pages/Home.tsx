@@ -33,7 +33,8 @@ interface HomeProps {
 	reallyCoolThingHappenedPercent: number;
 	countZeroTurns: number;
 	saveEmailKeyFunc: any;
-	currentEmail: string;
+	emailKeyInput: string;
+	setEmailKeyInput: any;
 };
 
 export const Home: React.FC<HomeProps> = ({
@@ -44,15 +45,10 @@ export const Home: React.FC<HomeProps> = ({
 	, reallyCoolThingHappenedPercent
 	, countZeroTurns
 	, saveEmailKeyFunc
-	, currentEmail
+	, emailKeyInput
+	, setEmailKeyInput
 }) => {
-	console.log(currentEmail);
-	
 
-	const [emailKeyInput, setEmailKeyInput] = useState(currentEmail);
-
-
-	// console.log(leaderboardData);
 	const format = durationFormatter();
 
 	return (
@@ -117,7 +113,7 @@ export const Home: React.FC<HomeProps> = ({
 						</IonCol>
 					</IonRow>
 
-					
+					{/* players email */}
 						<IonRow>
 							<IonCol>
 								<IonCard>

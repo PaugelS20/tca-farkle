@@ -23,17 +23,14 @@
 
 import { useState, useEffect } from 'react';
 
-
-const [theme, setTheme] = useState('light');
-
-
-useEffect(() => {
-    document.body.className = theme;
-}, [theme]);
-
-
 export const DarkMode = () => {
+    const [theme, setTheme] = useState('light');
     
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
+
     const toggleTheme = () => {
         if (theme === 'light') {
             setTheme('dark');
