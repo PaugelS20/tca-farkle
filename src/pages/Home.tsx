@@ -233,7 +233,7 @@ export const Home: React.FC<HomeProps> = ({
 						</IonRow>
 
 						{/* Really Cool THing Happened */}
-						<IonRow>
+						{/* <IonRow>
 							<IonCol>
 								<IonCard>
 									<IonCardHeader>
@@ -246,7 +246,7 @@ export const Home: React.FC<HomeProps> = ({
 									</IonCardContent>
 								</IonCard>
 							</IonCol>
-						</IonRow>
+						</IonRow> */}
 
 						<IonRow>
 							<IonCol>

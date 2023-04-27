@@ -108,67 +108,62 @@ export const getAvgGameDuration = (results: GameResult[]) => {
 	return sum / durations.length;
 };
 
-export const getPercentGamesReallyCoolThingHappened = (results: GameResult[]) => {
+export const getPercentGamesReallyCoolThingHappened = (
+	results: GameResult[]
+) => {
 	return results.length
-		? results.filter(x => x.reallyCoolThingHappened).length / results.length
-		: 0
-	;
+		? results.filter((x) => x.reallyCoolThingHappened).length /
+				results.length
+		: 0;
 };
-
+// finding the average farkles
 export const calcAvgFarklesPerGame = (results: GameResult[]) => {
-    console.log('here', results);
+	// console.log('here', results);
 
-	const totalFarkles = 10;
-	
-	results.flatMap((x) => x.turns.map((y) => y.farkle));
-	
-    console.log(results);
+	const totalFarkles = results
+		.flatMap((x) => x.turns)
+		.filter((y) => (y.points == 0))
+		.length
+	;
 
-	
-	return results.length > 0 
-	? totalFarkles / results.length
-	: 0
+	console.log("new", totalFarkles);
+
+	return results.length > 0 ? totalFarkles / results.length : 0;
+	//[...new Set(totalFarkles)].length
 };
 
-/*************************** End Game Functions *********************************/ 
+/*************************** End Game Functions *********************************/
 
 export const getUniquePlayersFromTurns = (turns: GamePlayer[]) => {
-    
-    const players = turns.map(x => x.name);
+	const players = turns.map((x) => x.name);
 	console.log(players);
 
-    return [
-        ...new Set(players)
-    ];	
+	return [...new Set(players)];
 };
 
 export const sumScores = (turns: any[]) => {
-    return turns.reduce(
-        (acc, x) => acc + x.score
-        , 0
-    );
+	return turns.reduce((acc, x) => acc + x.score, 0);
 };
 
 // !!! Important
-export const getScoresByPlayer = (turns: any[]): {
-    name: string;
-    total: number; //points
+export const getScoresByPlayer = (
+	turns: any[]
+): {
+	name: string;
+	total: number; //points
 }[] => {
-    
-    const uniquePlayers = getUniquePlayersFromTurns(turns);
+	const uniquePlayers = getUniquePlayersFromTurns(turns);
 	console.log();
-	
-    return uniquePlayers.map(x => ({
-        name: x
-        , total: sumScores(turns.filter(y => y.name == x))
-    }));
+
+	return uniquePlayers.map((x) => ({
+		name: x,
+		total: sumScores(turns.filter((y) => y.name == x)),
+	}));
 };
 
-export const anyWinners = (turns: any[]):boolean => {
-    return getScoresByPlayer(turns).some(x => x.total >= 10_000);
+export const anyWinners = (turns: any[]): boolean => {
+	return getScoresByPlayer(turns).some((x) => x.total >= 10_000);
 };
-
-
 
 // npm.runkit.com/human-readable REPL code
 
