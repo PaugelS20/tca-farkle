@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tca-farkle/static/css/main.5f21cdf0.css",
-    "main.js": "/tca-farkle/static/js/main.2b982a91.js",
+    "main.css": "/tca-farkle/static/css/main.35428f3c.css",
+    "main.js": "/tca-farkle/static/js/main.606f8847.js",
     "static/js/738.b4e266ab.chunk.js": "/tca-farkle/static/js/738.b4e266ab.chunk.js",
     "static/js/572.3e96dd6b.chunk.js": "/tca-farkle/static/js/572.3e96dd6b.chunk.js",
     "static/js/372.df82a1a7.chunk.js": "/tca-farkle/static/js/372.df82a1a7.chunk.js",
@@ -17,8 +17,8 @@
     "static/media/farkleScoring.png": "/tca-farkle/static/media/farkleScoring.b8a00875e06fb14b8771.png",
     "service-worker.js": "/tca-farkle/service-worker.js",
     "index.html": "/tca-farkle/index.html",
-    "main.5f21cdf0.css.map": "/tca-farkle/static/css/main.5f21cdf0.css.map",
-    "main.2b982a91.js.map": "/tca-farkle/static/js/main.2b982a91.js.map",
+    "main.35428f3c.css.map": "/tca-farkle/static/css/main.35428f3c.css.map",
+    "main.606f8847.js.map": "/tca-farkle/static/js/main.606f8847.js.map",
     "738.b4e266ab.chunk.js.map": "/tca-farkle/static/js/738.b4e266ab.chunk.js.map",
     "572.3e96dd6b.chunk.js.map": "/tca-farkle/static/js/572.3e96dd6b.chunk.js.map",
     "372.df82a1a7.chunk.js.map": "/tca-farkle/static/js/372.df82a1a7.chunk.js.map",
@@ -33,7 +33,7 @@
     "883.acbb0cb2.chunk.js.map": "/tca-farkle/static/js/883.acbb0cb2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f21cdf0.css",
-    "static/js/main.2b982a91.js"
+    "static/css/main.35428f3c.css",
+    "static/js/main.606f8847.js"
   ]
 }
