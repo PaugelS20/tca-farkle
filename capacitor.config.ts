@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.paugel.farkle',
   appName: 'tca-farkle',
   webDir: 'build',
   bundledWebRuntime: false
