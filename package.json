@@ -2,7 +2,7 @@
   "name": "tca-farkle",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://tca-farkle.github.io/tca-farkle",
+  "homepage": "https://PaugelS20.github.io/tca-farkle",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "^3.316.0",
     "@capacitor/app": "4.1.1",
