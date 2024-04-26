@@ -22,7 +22,7 @@ import { personAddOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { SetupInfo } from '../front-end-model';
-import "./pageCSS/Setup.css"
+import "../Master.css";
 
 export interface SetupProps {
   previousPlayers: string[];

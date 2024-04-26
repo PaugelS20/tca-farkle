@@ -24,7 +24,7 @@ import { durationFormatter } from "human-readable";
 import { personCircle } from "ionicons/icons";
 // import './pageCSS/Home.css';
 // import "../components/darkMode.css";
-import "../Master.css"
+import "../Master.css";
 
 
 interface HomeProps {

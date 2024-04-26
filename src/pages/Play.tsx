@@ -17,9 +17,10 @@ import {
   IonImg,
 } from '@ionic/react';
 import { GameResult, SetupInfo, getScoresByPlayer, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
-import { NumericFormat } from 'react-number-format';
+// import { NumericFormat } from 'react-number-format';
 
-import './pageCSS/Play.css';
+// import './pageCSS/Play.css';
+import "../Master.css";
 import FarkleScoringSheet from '../farkleScoring.png';
 
 interface PlayProps {

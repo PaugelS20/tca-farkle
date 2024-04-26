@@ -24,7 +24,7 @@
 import { useState, useEffect } from 'react';
 import { IonButton, IonIcon } from '@ionic/react';
 import { invertModeOutline } from 'ionicons/icons';
-import "./darkMode.css";
+import "../Master.css";
 
 export const DarkMode = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
