@@ -1,0 +1,89 @@
+/* Home page styles */
+#startGameButton {
+	align-self: center;
+}
+#leaderboardResults {
+	padding: 0em 0em 1em 0em;
+}
+.leaderboardHeaders {
+	font-weight: bold;
+	border-bottom: solid rgb(146, 143, 143) 0.1em;
+    background: translucent;
+}
+.accountPerson {
+	padding-right: 0.2em;
+}
+
+/* Play Page styles */
+#playContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#playerButtonRow {
+    margin-bottom: 3em;
+}
+#farkleScoringSheet {
+    max-width: 20em;
+    margin-bottom: 2em;
+}
+
+/* Setup page styles */
+#setupTitle {
+	padding-bottom: 1em;
+}
+#setupText {
+	padding: 1em;
+}
+#fabContainer {
+	margin-left: 20em;
+	margin-top: -1em;
+}
+#newPlayerNameInput {
+	margin: 1em 0em 1em 1em;
+	max-width: 15em;
+}
+#IonListandNewPlayerbutton {
+    display: flex;
+    align-items: center;
+}
+
+/* Main Conetent */
+/* .container {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.container strong {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+.container p {
+	font-size: 16px;
+	line-height: 22px;
+	color: #8c8c8c;
+	margin: 0;
+}
+
+.container a {
+	text-decoration: none;
+} */
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+  .container {
+      display: flex;
+      flex-direction: column;
+  }
+  #startGameButton {
+      align-self: center;
+  }
