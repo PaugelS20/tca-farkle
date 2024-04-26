@@ -22,28 +22,29 @@
 // }
 
 import { useState, useEffect } from 'react';
+import { IonButton, IonIcon } from '@ionic/react';
+import { invertModeOutline } from 'ionicons/icons';
 import "./darkMode.css";
 
 export const DarkMode = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+    const toggleTheme = () => theme == 'light' ? setTheme('dark') : setTheme('light'); 
     
+
     useEffect(() => {
+        localStorage.setItem('theme', theme);
         document.body.className = theme;
-    }, [theme]);
-
-
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-    };
-
+        }, [theme]);
 
     return (
         <div className={`App ${theme}`}>
-            <button onClick={toggleTheme}>Dark Mode</button>
+            <IonButton size="small" color="medium" 
+                className={`${theme}`} 
+                onClick={toggleTheme}
+            >
+                <IonIcon icon={invertModeOutline}></IonIcon>
+                Toggle Dark Mode
+            </IonButton>
         </div>
     );
 }
