@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import {
 	IonContent,
 	IonHeader,
@@ -18,13 +17,14 @@ import {
 	IonInput,
 	IonIcon,
 } from '@ionic/react';
-import { moon, personCircle } from 'ionicons/icons';
-// import { MainContent } from '../components/MainContent';
+import { DarkMode } from '../components/DarkMode';
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
-import './pageCSS/Home.css';
-import "../components/darkMode.css";
+import { personCircle } from "ionicons/icons";
+// import './pageCSS/Home.css';
+// import "../components/darkMode.css";
+import "../Master.css"
 
 
 interface HomeProps {
@@ -51,20 +51,20 @@ export const Home: React.FC<HomeProps> = ({
 	, avgFarklesPerGame
 }) => {
 
-	const [theme, setTheme] = useState('light');
+	// const [theme, setTheme] = useState('light');
 
-	useEffect(() => {
-		document.body.className = theme;
-	}, [theme]);
+	// useEffect(() => {
+	// 	document.body.className = theme;
+	// }, [theme]);
 
 
-	const toggleTheme = () => {
-		if (theme === 'light') {
-			setTheme('dark');
-		} else {
-			setTheme('light');
-		}
-	};
+	// const toggleTheme = () => {
+	// 	if (theme === 'light') {
+	// 		setTheme('dark');
+	// 	} else {
+	// 		setTheme('light');
+	// 	}
+	// };
 
 	const format = durationFormatter();
 
@@ -72,12 +72,9 @@ export const Home: React.FC<HomeProps> = ({
 		<IonPage>
 			<MainHeader />
 			<IonContent fullscreen={true}>
-				<div className={`App ${theme}`}>
-
 					<IonHeader collapse="condense">
 						<IonToolbar>
 							<IonTitle size="large">Farkle App</IonTitle>
-
 						</IonToolbar>
 					</IonHeader>
 
@@ -144,10 +141,7 @@ export const Home: React.FC<HomeProps> = ({
 
 									<IonCardContent>
 										<IonRow class='darkModeRow'>
-											<IonButton color="tertiary" onClick={toggleTheme}>
-												Dark Mode
-												<IonIcon slot="start" icon={moon}></IonIcon>
-											</IonButton>
+											<DarkMode />
 										</IonRow>
 									</IonCardContent>
 								</IonCard>
@@ -210,7 +204,6 @@ export const Home: React.FC<HomeProps> = ({
 										<IonRow>
 											{`Average game time: ${format(avgGameDuration)}`}
 										</IonRow>
-
 									</IonCardContent>
 								</IonCard>
 							</IonCol>
@@ -254,7 +247,7 @@ export const Home: React.FC<HomeProps> = ({
 							</IonCol>
 						</IonRow>
 					</IonGrid>
-				</div>
+			
 				{/* <MainContent /> */}
 			</IonContent>
 		</IonPage >
