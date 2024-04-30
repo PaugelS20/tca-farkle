@@ -102,16 +102,16 @@ export const Setup: React.FC<SetupProps> = ({
               <IonText id='setupText'>Select who's playing or add someone new</IonText>
 
               <IonList id='IonListandNewPlayerbutton'>
-                <IonItem
-                  id='newPlayerNameInput'
-                >
+                <IonItem id='newPlayerNameInput'>
                   <IonInput
                     placeholder="Enter text"
                     labelPlacement="floating"
+                    label='Add Player'
                     value={newPlayerName}
-                    onIonChange={(e: any) => setNewPlayerName(e.target.value)} 
+                    onIonInput={(e) => { 
+                      setNewPlayerName(e.target?.value?.toString() ?? "")
+                    } }
                   >
-                    Add Player
                   </IonInput>
                 </IonItem>
 
