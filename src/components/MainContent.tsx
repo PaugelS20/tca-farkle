@@ -1,10 +1,4 @@
-import './MainContent.css';
-import {
-
-} from '@ionic/react';
-// import { Setup } from "../pages";
-
-// const nav = useNavigate();
+import '../Master.css';
 
 interface ContainerProps { }
 

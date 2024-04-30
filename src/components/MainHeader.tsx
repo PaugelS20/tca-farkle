@@ -2,7 +2,6 @@ import {
     IonHeader,
     IonTitle,
     IonToolbar,
-
 } from '@ionic/react';
 
 export const MainHeader: React.FC = () => {

@@ -104,7 +104,6 @@ export const Setup: React.FC<SetupProps> = ({
               <IonList id='IonListandNewPlayerbutton'>
                 <IonItem
                   id='newPlayerNameInput'
-                  // fill="solid"
                 >
                   <IonInput
                     placeholder="Enter text"
@@ -154,16 +153,3 @@ export const Setup: React.FC<SetupProps> = ({
     </IonPage>
   );
 };
-
-// new ionic 7 input cleaner not sure if I should upgrade yet
-{/* Before
-<IonItem>
-  <IonLabel position="floating">Email:</IonLabel>
-  <IonInput></IonInput>
-</IonItem>
-
-After
-<IonItem>
-  <IonInput label="Email:" labelPlacement="floating"></IonInput>
-</IonItem> */}
-
