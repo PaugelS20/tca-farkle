@@ -10,7 +10,6 @@ import {
   IonRow,
   IonItem,
   IonCheckbox,
-  IonLabel,
   IonList,
   IonFabButton,
   IonIcon,
