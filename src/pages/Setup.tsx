@@ -16,6 +16,8 @@ import {
   IonText,
   IonNavLink,
   IonInput,
+  InputCustomEvent,
+  InputChangeEventDetail,
 } from '@ionic/react';
 import { personAddOutline } from 'ionicons/icons';
 import { useState } from 'react';
@@ -109,7 +111,13 @@ export const Setup: React.FC<SetupProps> = ({
                     placeholder="Enter text"
                     labelPlacement="floating"
                     value={newPlayerName}
-                    onIonChange={(e: any) => setNewPlayerName(e.target.value)} 
+                    // type='number'
+                    type='text'
+                    // onIonChange={(e: any) => setNewPlayerName(e.target.value)} 
+                    onIonInput={(e) => {
+                      console.log(typeof(e.target.value));
+                      setNewPlayerName(e.target?.value?.toString() ?? "");
+                    }}
                   >
                     Add Player
                   </IonInput>
