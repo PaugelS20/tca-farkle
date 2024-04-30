@@ -160,7 +160,7 @@ export const Home: React.FC<HomeProps> = ({
 									<IonCardContent>
 										<IonRow>
 											<IonItem>
-												<IonIcon class='accountPerson' icon={personCircle}></IonIcon>
+												<IonIcon className='accountPerson' icon={personCircle}></IonIcon>
 												<IonInput
 													type='text'
 													placeholder="Enter new player Email"
