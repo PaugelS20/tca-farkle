@@ -89,6 +89,9 @@ ion-card-header.ios {
   }
 
 /* Dark Mode Styles */
+#darkModeIcon {
+	max-width: 100%;
+}
 /*
  * Dark Colors
  * ------------------
