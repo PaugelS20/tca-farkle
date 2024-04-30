@@ -169,7 +169,8 @@ export const Home: React.FC<HomeProps> = ({
 												>
 												</IonInput>
 											</IonItem>
-											<IonButton size="small" color="success" onClick={() => saveEmailKeyFunc(emailKeyInput)}>
+											<IonButton size="small" color="success" 
+												onClick={() => saveEmailKeyFunc(emailKeyInput)}>
 												Save
 											</IonButton>
 
