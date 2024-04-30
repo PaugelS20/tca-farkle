@@ -105,14 +105,15 @@ export const Setup: React.FC<SetupProps> = ({
               <IonList id='IonListandNewPlayerbutton'>
                 <IonItem
                   id='newPlayerNameInput'
-                  fill="solid"
+                  // fill="solid"
                 >
-                  <IonLabel position="floating">Add Player</IonLabel>
                   <IonInput
                     placeholder="Enter text"
+                    labelPlacement="floating"
                     value={newPlayerName}
                     onIonChange={(e: any) => setNewPlayerName(e.target.value)} 
                   >
+                    Add Player
                   </IonInput>
                 </IonItem>
 
@@ -128,11 +129,14 @@ export const Setup: React.FC<SetupProps> = ({
                 <IonCol>
                   <IonList>
                     <IonItem>
-                      <IonCheckbox slot="start"
+                      <IonCheckbox 
+                        labelPlacement="end"
+                        justify="start"
                         checked={x.checked}
-                        onIonChange={() => togglePlayer(x.name)}>{x.name}
+                        onIonChange={() => togglePlayer(x.name)}
+                        >
+                          {x.name}
                       </IonCheckbox>
-                      <IonLabel>{x.name}</IonLabel>
                     </IonItem>
                   </IonList>
                 </IonCol>
