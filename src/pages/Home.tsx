@@ -131,7 +131,7 @@ export const Home: React.FC<HomeProps> = ({
 						</IonRow>
 
 						{/* Dark Mode switch */}
-						<IonRow>
+						{/* <IonRow>
 							<IonCol>
 								<IonCard>
 									<IonCardHeader>
@@ -146,7 +146,7 @@ export const Home: React.FC<HomeProps> = ({
 									</IonCardContent>
 								</IonCard>
 							</IonCol>
-						</IonRow>
+						</IonRow> */}
 
 						{/* players email */}
 						<IonRow>

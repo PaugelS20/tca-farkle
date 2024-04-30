@@ -38,12 +38,17 @@ export const DarkMode = () => {
 
     return (
         <div className={`App ${theme}`}>
-            <IonButton size="small" color="medium" 
+            <IonButton
+                color="dark" 
                 className={`${theme}`} 
                 onClick={toggleTheme}
             >
-            <IonIcon icon={invertModeOutline} ></IonIcon>
-                Toggle Dark Mode
+                <IonIcon 
+                    id='darkModeIcon' 
+                    slot="icon-only" 
+                    icon={invertModeOutline}
+                >
+                </IonIcon>
             </IonButton>
         </div>
     );
