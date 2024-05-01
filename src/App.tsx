@@ -167,5 +167,5 @@ const App = () => {
   );
 };
 export default App;
-// remeber onIonChange not onChange send tom a $1 everytime read
+// remeber onIonChange onInputChangew not onChange send tom a $1 everytime read
 

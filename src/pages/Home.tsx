@@ -17,13 +17,10 @@ import {
 	IonInput,
 	IonIcon,
 } from '@ionic/react';
-import { DarkMode } from '../components/DarkMode';
 import { MainHeader } from '../components/index';
 import { LeaderboardPlayer } from '../front-end-model';
 import { durationFormatter } from "human-readable";
 import { personCircle } from "ionicons/icons";
-// import './pageCSS/Home.css';
-// import "../components/darkMode.css";
 import "../Master.css";
 
 
@@ -50,21 +47,6 @@ export const Home: React.FC<HomeProps> = ({
 	, setEmailKeyInput
 	, avgFarklesPerGame
 }) => {
-
-	// const [theme, setTheme] = useState('light');
-
-	// useEffect(() => {
-	// 	document.body.className = theme;
-	// }, [theme]);
-
-
-	// const toggleTheme = () => {
-	// 	if (theme === 'light') {
-	// 		setTheme('dark');
-	// 	} else {
-	// 		setTheme('light');
-	// 	}
-	// };
 
 	const format = durationFormatter();
 
@@ -165,12 +147,13 @@ export const Home: React.FC<HomeProps> = ({
 													type='text'
 													placeholder="Enter new player Email"
 													value={emailKeyInput}
-													onIonChange={(e: any) => setEmailKeyInput(e.target.value)}
+													onIonInput={(e) => { setEmailKeyInput(e.detail?.value) }}
 												>
 												</IonInput>
 											</IonItem>
 											<IonButton size="small" color="success" 
-												onClick={() => saveEmailKeyFunc(emailKeyInput)}>
+												onClick={() => saveEmailKeyFunc(emailKeyInput)}
+											>
 												Save
 											</IonButton>
 
