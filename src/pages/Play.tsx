@@ -12,6 +12,7 @@ import {
   IonBadge,
   IonImg,
   IonText,
+  IonIcon,
 } from '@ionic/react';
 import { 
   GameResult, 
@@ -23,6 +24,7 @@ import {
 import { MainHeader } from '../components/index';
 import FarkleScoringSheet from '../farkleScoring.png';
 import "../Master.css";
+import { addOutline, diceOutline } from "ionicons/icons";
 // import { NumericFormat } from 'react-number-format';
 
 interface PlayProps {
@@ -226,11 +228,13 @@ export const Play: React.FC<PlayProps> = ({
                       <IonButton onClick={() => addPoints(x)}
                         color="success">
                         {x} Add
+						<IonIcon icon={addOutline}></IonIcon>
                       </IonButton>
 
                       <IonButton onClick={() => addFarkle(x)} //endGame(x)
                         color="warning">
                         {x} Farkled
+						<IonIcon icon={diceOutline}></IonIcon>
                       </IonButton>
                     </IonRow>
                   </>
