@@ -145,7 +145,7 @@ export const Home: React.FC<HomeProps> = ({
 												<IonIcon className='accountPerson' icon={personCircle}></IonIcon>
 												<IonInput
 													type='text'
-													placeholder="Enter new player Email"
+													placeholder="Enter player email"
 													value={emailKeyInput}
 													onIonInput={(e) => { setEmailKeyInput(e.detail?.value) }}
 												>
@@ -227,7 +227,7 @@ export const Home: React.FC<HomeProps> = ({
 
 						<IonRow>
 							<IonCol>
-								<IonButton expand="block" routerLink='/setup' id='startGameButton' color="success">Play Game</IonButton>
+								<IonButton expand="block" routerLink='/setup' color="success">Play Game</IonButton>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
