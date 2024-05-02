@@ -17,6 +17,7 @@ import {
   IonNavLink,
   IonInput,
 } from '@ionic/react';
+import { MainHeader } from '../components/index';
 import { personAddOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
@@ -87,11 +88,8 @@ export const Setup: React.FC<SetupProps> = ({
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Farkle Companion App</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      
+      <MainHeader/>
 
       <IonContent fullscreen>
         <IonGrid>
