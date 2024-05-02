@@ -64,7 +64,7 @@ const App = () => {
       const loadEmailKeyAndGameResults = async () => {
 
         try {
-          const ek = String(await localforage.getItem("emailKey")) ?? "";
+          const ek = await localforage.getItem<string>("emailKey") ?? "";          
 
           if (ek.length > 0) {
             const resultsFromCloud = await loadGamesFromCloud(
