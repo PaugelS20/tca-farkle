@@ -16,7 +16,13 @@ import {
   IonBadge,
   IonImg,
 } from '@ionic/react';
-import { GameResult, SetupInfo, getScoresByPlayer, sumScores, getUniquePlayersFromTurns } from '../front-end-model';
+import { 
+  GameResult, 
+  SetupInfo, 
+  getScoresByPlayer, 
+  sumScores, 
+  getUniquePlayersFromTurns 
+} from '../front-end-model';
 // import { NumericFormat } from 'react-number-format';
 
 // import './pageCSS/Play.css';
@@ -160,15 +166,14 @@ export const Play: React.FC<PlayProps> = ({
                         <IonLabel position="floating">Points</IonLabel>
                         <IonInput
                           type="number"
-                          // placeholder="0"
                           value={
                             playerScores.filter(y => y.name == x)[0].scoreInput
                           }
-                          onIonChange={(e: any) => setPlayerScores([
+                          onIonChange={(e) => setPlayerScores([
                             ...playerScores.filter(y => y.name !== x)
                             , {
                               name: x
-                              , scoreInput: Number(e.target.value)
+                              , scoreInput: Number(e.detail?.value)
                             }
                           ])}
                         >
@@ -206,7 +211,6 @@ export const Play: React.FC<PlayProps> = ({
                         color="warning">
                         {x} Farkle
                       </IonButton>
-
                     </IonRow>
                   </>
                 ))
