@@ -142,7 +142,7 @@ export const Home: React.FC<HomeProps> = ({
 									<IonCardContent>
 										<IonRow>
 											<IonItem>
-												<IonIcon className='accountPerson' icon={personCircle}></IonIcon>
+												<IonIcon icon={personCircle} slot='start'></IonIcon>
 												<IonInput
 													type='text'
 													placeholder="Enter player email"
@@ -168,8 +168,8 @@ export const Home: React.FC<HomeProps> = ({
 							<IonCol>
 								<IonCard>
 									<IonCardHeader>
-										<IonCardTitle>Game Time Fun Facts</IonCardTitle>
-										<IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+										<IonCardTitle>Game Time</IonCardTitle>
+										<IonCardSubtitle>Fun Fact</IonCardSubtitle>
 									</IonCardHeader>
 
 									<IonCardContent>
@@ -198,8 +198,8 @@ export const Home: React.FC<HomeProps> = ({
 							<IonCol>
 								<IonCard>
 									<IonCardHeader>
-										<IonCardTitle>Amount of Farkles Per Game Fun Fact </IonCardTitle>
-										<IonCardSubtitle>Cool new facts!</IonCardSubtitle>
+										<IonCardTitle>Farkles Per Game</IonCardTitle>
+										<IonCardSubtitle>Fun Fact</IonCardSubtitle>
 									</IonCardHeader>
 
 									<IonCardContent>
