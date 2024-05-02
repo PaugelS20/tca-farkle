@@ -23,11 +23,10 @@ import {
   sumScores, 
   getUniquePlayersFromTurns 
 } from '../front-end-model';
-// import { NumericFormat } from 'react-number-format';
-
-// import './pageCSS/Play.css';
-import "../Master.css";
+import { MainHeader } from '../components/index';
 import FarkleScoringSheet from '../farkleScoring.png';
+import "../Master.css";
+// import { NumericFormat } from 'react-number-format';
 
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;
@@ -141,11 +140,7 @@ export const Play: React.FC<PlayProps> = ({
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Farkle Companion App</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <MainHeader/>
 
       <IonContent fullscreen>
         <IonGrid>
