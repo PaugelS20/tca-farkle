@@ -7,9 +7,6 @@
 	border-bottom: solid rgb(146, 143, 143) 0.1em;
     background: translucent;
 }
-.accountPerson {
-	padding-right: 0.2em;
-}
 
 /* Play Page styles */
 #playContainer {
@@ -28,9 +25,6 @@
 }
 
 /* Setup page styles */
-#setupTitle {
-	padding-bottom: 1em;
-}
 #setupText {
 	padding: 1em;
 }
