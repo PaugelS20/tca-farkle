@@ -14,7 +14,6 @@ import {
   getPercentGamesReallyCoolThingHappened,
   calcAvgFarklesPerGame,
 } from './front-end-model';
-
 import localforage from "localforage";
 import { loadGamesFromCloud, saveGameToCloud } from "./tca-cloud-api";
 
@@ -167,5 +166,5 @@ const App = () => {
   );
 };
 export default App;
-// remeber onIonChange onInputChangew not onChange send tom a $1 everytime read
+// remember onIonInput and onInputChange not onChange send tom a $1 everytime read
 
