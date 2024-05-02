@@ -92,16 +92,15 @@ export const Setup: React.FC<SetupProps> = ({
 
       <IonContent fullscreen>
         <IonGrid>
-
           <IonRow>
             <IonCol>
-              <IonTitle id='setupTitle'>Setup</IonTitle>
-              <IonText id='setupText'>Select who's playing or add someone new</IonText>
+              <h2>Setup</h2>
+              <IonText className="ion-padding-bottom">Select who's playing or add someone new</IonText>
 
               <IonList id='IonListandNewPlayerbutton'>
                 <IonItem id='newPlayerNameInput'>
                   <IonInput
-                    placeholder="Enter text"
+                    placeholder="Enter Name"
                     labelPlacement="floating"
                     label='Add Player'
                     value={newPlayerName}
