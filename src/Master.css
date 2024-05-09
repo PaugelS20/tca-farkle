@@ -41,31 +41,6 @@
 	align-items: center;
 }
 
-/* Main Conetent */
-/* .container {
-	text-align: center;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-.container strong {
-	font-size: 20px;
-	line-height: 26px;
-}
-
-.container p {
-	font-size: 16px;
-	line-height: 22px;
-	color: #8c8c8c;
-	margin: 0;
-}
-
-.container a {
-	text-decoration: none;
-} */
 /* iOS places the subtitle above the title */
 ion-card-header.ios {
 	display: flex;
@@ -87,18 +62,10 @@ ion-card-header.ios {
  * Dark Colors
  * ------------------
  */
-.darkModeRow {
-	display: flex;
-	justify-content: center;
-}
 
 #newFeature {
 	--color: var(--ion-color-danger);
 }
-
-/* .darkMode {
-	--padding-end: 0em;
-} */
 body.dark {
 	--ion-color-primary: #428cff;
 	--ion-color-primary-rgb: 66, 140, 255;
@@ -165,9 +132,9 @@ body.dark {
 }
 
 /*
-   * iOS Dark Theme
-   * -------------------
-   */
+* iOS Dark Theme
+* -------------------
+*/
 
 .ios body.dark {
 	--ion-background-color: #000000;
@@ -203,9 +170,9 @@ body.dark {
 }
 
 /*
-   * Material Design Dark Theme
-   * ------------------------------
-   */
+* Material Design Dark Theme
+* ------------------------------
+*/
 
 .md body.dark {
 	--ion-background-color: #121212;

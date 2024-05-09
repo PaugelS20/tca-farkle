@@ -209,7 +209,7 @@ export const Home: React.FC<HomeProps> = ({
 							</IonCol>
 						</IonRow>
 
-						{/* Really Cool THing Happened */}
+						{/* Really Cool Thing Happened */}
 						{/* <IonRow>
 							<IonCol>
 								<IonCard>
