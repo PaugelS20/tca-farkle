@@ -5,23 +5,23 @@
 .leaderboardHeaders {
 	font-weight: bold;
 	border-bottom: solid rgb(146, 143, 143) 0.1em;
-    background: translucent;
+	background: translucent;
 }
 
 /* Play Page styles */
 #playContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 #playerButtonRow {
-    margin-bottom: 3em;
+	margin-bottom: 3em;
 }
 #farkleScoringSheet {
-    max-width: 20em;
-    margin-bottom: 2em;
+	max-width: 20em;
+	margin-bottom: 2em;
 }
 
 /* Setup page styles */
@@ -37,8 +37,8 @@
 	max-width: 15em;
 }
 #IonListandNewPlayerbutton {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 /* Main Conetent */
@@ -68,16 +68,16 @@
 } */
 /* iOS places the subtitle above the title */
 ion-card-header.ios {
-    display: flex;
-    flex-flow: column-reverse;
-  }
-  .container {
-      display: flex;
-      flex-direction: column;
-  }
-  #startGameButton {
-      align-self: center;
-  }
+	display: flex;
+	flex-flow: column-reverse;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+}
+#startGameButton {
+	align-self: center;
+}
 
 /* Dark Mode Styles */
 #darkModeIcon {
@@ -87,9 +87,9 @@ ion-card-header.ios {
  * Dark Colors
  * ------------------
  */
- .darkModeRow {
+.darkModeRow {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }
 
 #newFeature {
@@ -99,7 +99,7 @@ ion-card-header.ios {
 /* .darkMode {
 	--padding-end: 0em;
 } */
-body.dark {
+/* body.dark {
 	--ion-color-primary: #428cff;
 	--ion-color-primary-rgb: 66, 140, 255;
 	--ion-color-primary-contrast: #ffffff;
@@ -162,14 +162,14 @@ body.dark {
 	--ion-color-light-contrast-rgb: 255, 255, 255;
 	--ion-color-light-shade: #1e2023;
 	--ion-color-light-tint: #383a3e;
-}
+} */
 
 /*
    * iOS Dark Theme
    * -------------------
    */
 
-.ios body.dark {
+/* .ios body.dark {
 	--ion-background-color: #000000;
 	--ion-background-color-rgb: 0, 0, 0;
 
@@ -200,14 +200,14 @@ body.dark {
 
 	--ion-item-background: #1c1c1c;
 	--ion-item-background-activated: #313131;
-}
+} */
 
 /*
    * Material Design Dark Theme
    * ------------------------------
    */
 
-.md body.dark {
+/* .md body.dark {
 	--ion-background-color: #121212;
 	--ion-background-color-rgb: 18, 18, 18;
 
@@ -237,9 +237,9 @@ body.dark {
 	--ion-color-step-950: #f3f3f3;
 
 	--ion-item-background: #1a1b1e;
-}
+} */
 
 /* Optional CSS, this is added for the flashing that happens when toggling between themes */
-ion-item {
+/* ion-item {
 	--transition: none;
-}
+} */
