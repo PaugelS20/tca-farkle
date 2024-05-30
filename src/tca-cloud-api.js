@@ -37,7 +37,7 @@ export const saveGameToCloud = async (email, appName, timestamp, gameResult) => 
     };
   
     await fetch(
-      "https://32wop75hhc.execute-api.us-east-1.amazonaws.com/prod/data"
+      "https://dmzjgyn93m.execute-api.us-east-2.amazonaws.com/prod/data"
       , options 
     );
   };
