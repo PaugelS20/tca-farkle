@@ -44,7 +44,7 @@ export const saveGameToCloud = async (email, appName, timestamp, gameResult) => 
   
   export const loadGamesFromCloud = async (email, appName) => {
       
-    const url = `https://32wop75hhc.execute-api.us-east-1.amazonaws.com/prod/data/?user=${email}&game=${appName}`;
+    const url = `https://dmzjgyn93m.execute-api.us-east-2.amazonaws.com/prod/data/?user=${email}&game=${appName}`;
     
     console.log("url", url);
     
