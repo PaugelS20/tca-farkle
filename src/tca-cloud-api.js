@@ -44,9 +44,11 @@ export const saveGameToCloud = async (email, appName, timestamp, gameResult) => 
   
   export const loadGamesFromCloud = async (email, appName) => {
       
-    const url = `https://32wop75hhc.execute-api.us-east-1.amazonaws.com/prod/data/?user=${email}&game=${appName}`;
+    const url = `https://dmzjgyn93m.execute-api.us-east-2.amazonaws.com/prod/data/?user=${email}&game=${appName}`;
     
-    console.log("url", url);
+    // 32wop75hhc.execute-api.us-east-1.amazonaws.com
+
+    console.log("url loading games from cloud", url);
     
     const response = await fetch(url);
     const data = await response.json();
@@ -55,7 +57,7 @@ export const saveGameToCloud = async (email, appName, timestamp, gameResult) => 
     
     const unmarshalledData = data.Items.map(x => unmarshall(x, {convertEmptyValues: true}));
     
-    console.log("Unarshalled Response", unmarshalledData);
+    console.log("UnMarshalled Response", unmarshalledData);
 
     const gameResults = unmarshalledData.map(x => x.game);
     return gameResults;    
