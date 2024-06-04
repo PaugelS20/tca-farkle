@@ -116,7 +116,7 @@ export const getPercentGamesReallyCoolThingHappened = (
 				results.length
 		: 0;
 };
-// finding the average farkles
+// Calculating the average farkles per game
 export const calcAvgFarklesPerGame = (results: GameResult[]) => {
 	// console.log('here', results);
 
@@ -125,8 +125,7 @@ export const calcAvgFarklesPerGame = (results: GameResult[]) => {
 		.filter((y) => (y.points == 0))
 		.length
 	;
-
-	console.log("new", totalFarkles);
+	// console.log("new total farkles or avg", totalFarkles);
 
 	return results.length > 0 ? totalFarkles / results.length : 0;
 	//[...new Set(totalFarkles)].length
@@ -153,7 +152,6 @@ export const getScoresByPlayer = (
 	total: number; //points
 }[] => {
 	const uniquePlayers = getUniquePlayersFromTurns(turns);
-	console.log();
 
 	return uniquePlayers.map((x) => ({
 		name: x,
