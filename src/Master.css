@@ -36,7 +36,7 @@
 	margin: 1em 0em 1em 1em;
 	max-width: 15em;
 }
-#IonListandNewPlayerbutton {
+#NewPlayerIonList {
 	display: flex;
 	align-items: center;
 }
@@ -45,6 +45,9 @@
 ion-card-header.ios {
 	display: flex;
 	flex-flow: column-reverse;
+}
+ion-toolbar {
+	--opacity: 0.5;
 }
 .container {
 	display: flex;
