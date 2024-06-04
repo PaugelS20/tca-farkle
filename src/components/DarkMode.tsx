@@ -42,6 +42,7 @@ export const DarkMode = () => {
                 color="dark" 
                 className={`${theme}`} 
                 onClick={toggleTheme}
+                aria-label='Darkmode-button'
             >
                 <IonIcon 
                     id='darkModeIcon' 
