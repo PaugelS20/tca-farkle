@@ -25,7 +25,6 @@ import {
 import { MainHeader } from '../components/index';
 import FarkleScoringSheet from '../farkleScoring.png';
 import { addOutline, diceOutline } from "ionicons/icons";
-// import { NumericFormat } from 'react-number-format';
 import "../Master.css";
 
 interface PlayProps {
@@ -104,11 +103,6 @@ export const Play: React.FC<PlayProps> = ({
     ])
   };
 
-  const number = 3500;
-
-  console.log(new Intl.NumberFormat().format(number));
-  // '3,500' if in US English locale
-
   // const scoreGreaterThanTenThousand = false;
   const scoreGreaterThanTenThousand = () => {
     const grouped =
@@ -172,18 +166,20 @@ export const Play: React.FC<PlayProps> = ({
 								<IonInput
 									labelPlacement="stacked"
 									label='Points'
-									type="number"
+									type="text"
 									clearOnEdit={true}
 									value={
-										playerScores.filter(y => y.name == x)[0].scoreInput
+										new Intl.NumberFormat().format(
+											playerScores.filter(y => y.name == x)[0].scoreInput
+										)
 									}
-								onIonChange={(e) => setPlayerScores([
+									onIonInput={(e) => setPlayerScores([
 									...playerScores.filter(y => y.name !== x)
 									, {
 									name: x
 									, scoreInput: Number(e.detail?.value)
 									}
-								])}
+									])}
 								>
 								</IonInput>
 
