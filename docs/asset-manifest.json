@@ -16,7 +16,7 @@
     "static/js/883.2ea813ac.chunk.js": "/tca-farkle/static/js/883.2ea813ac.chunk.js",
     "static/media/farkleScoring.png": "/tca-farkle/static/media/farkleScoring.b8a00875e06fb14b8771.png",
     "service-worker.js": "/tca-farkle/service-worker.js",
-    "index.html": "/tca-farkle/index.html",
+    "index.html": "./tca-farkle/index.html",
     "main.22f503ca.css.map": "/tca-farkle/static/css/main.22f503ca.css.map",
     "main.0e6d7398.js.map": "/tca-farkle/static/js/main.0e6d7398.js.map",
     "630.6610076c.chunk.js.map": "/tca-farkle/static/js/630.6610076c.chunk.js.map",
