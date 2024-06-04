@@ -142,25 +142,23 @@ export const Play: React.FC<PlayProps> = ({
       <MainHeader/>
       <IonContent fullscreen>
         <IonGrid>
-          	<IonRow>
+          <IonRow>
             <IonCol>
                 	<h2>Play</h2>
-					<IonText>
-						<p className="ion-text-start-wrap">
-							First player to reach 10,000 Points wins.
-							If another player is close on their last roll they can beat them.
-						</p>
-                  	{/* <p>some data collection stuff goes here</p> */}
+                  <IonText className="ion-text-start-wrap">
+                      First player to reach 10,000 Points wins.
+                      If another player is close on their last roll they can beat them.
               		</IonText>
               <IonImg id="farkleScoringSheet" src={FarkleScoringSheet} alt="farkle-scoring-sheet" />
-			  </IonCol>
-			</IonRow>
+			      </IonCol>
+			    </IonRow>
               {
                 setupInfo.chosenPlayers.map(x => (
 				<IonGrid key={x}>
-                    <IonRow className="ion-margin-top">
+          <IonRow className="ion-margin-top">
 						<IonList>
-							<IonItem lines="none">{x}</IonItem>
+							
+              <IonItem lines="none">{x}</IonItem>
 			
 							<IonItem>
 								<IonInput
@@ -182,66 +180,38 @@ export const Play: React.FC<PlayProps> = ({
 									])}
 								>
 								</IonInput>
-
-							
-
-
-								{/* <IonList>
-								<IonItem>
-									<IonInput labelPlacement="floating"
-												clearOnEdit={true}
-												value={
-														playerScores.filter(y => y.name == x)[0].scoreInput
-													}
-												onIonChange={(e) => setPlayerScores([
-													...playerScores.filter(y => y.name !== x)
-													, {
-													name: x
-													, scoreInput: Number(e.detail?.value)
-													}
-												])}>
-									<div slot="label">
-										Points <IonText color="primary" slot="end">Current</IonText>
-									</div>
-									</IonInput>
-								</IonItem>
-								</IonList> */}
-
-								{/* <NumericFormat
-								value={
-									playerScores.filter(y => y.name == x)[0].scoreInput
-								}
-								customInput={IonInput} /> */}
-
+                
 								<IonBadge slot="end" className="ion-margin-bottom">
 								{
-									gameTurns
-									.filter(
-										y => y.name == x
-									)
-									.reduce(
-										(acc, x) => acc + x.points
-										, 0
-									)
+                  new Intl.NumberFormat().format(
+                      gameTurns
+                      .filter(
+                        y => y.name == x
+                      )
+                      .reduce(
+                        (acc, x) => acc + x.points
+                        , 0
+                      )
+                 )
 								}
 								</IonBadge>
 							</IonItem>
 						</IonList>
-                    </IonRow>
+          </IonRow>
 
-                    <IonRow id="playerButtonRow">
-                      <IonButton onClick={() => addPoints(x)}
-                        color="success">
-                        {x} Add
-						<IonIcon icon={addOutline}></IonIcon>
-                      </IonButton>
+          <IonRow id="playerButtonRow">
+            <IonButton onClick={() => addPoints(x)}
+              color="success">
+              {x} Add
+            <IonIcon icon={addOutline}></IonIcon>
+            </IonButton>
 
-                      <IonButton onClick={() => addFarkle(x)} //endGame(x)
-                        color="warning">
-                        {x} Farkled
-						<IonIcon icon={diceOutline}></IonIcon>
-                      </IonButton>
-                    </IonRow>
+            <IonButton onClick={() => addFarkle(x)} //endGame(x)
+              color="warning">
+              {x} Farkled
+            <IonIcon icon={diceOutline}></IonIcon>
+            </IonButton>
+          </IonRow>
 				</IonGrid>
                 ))
               }
