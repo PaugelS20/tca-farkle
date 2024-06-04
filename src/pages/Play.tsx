@@ -23,9 +23,9 @@ import {
 } from '../front-end-model';
 import { MainHeader } from '../components/index';
 import FarkleScoringSheet from '../farkleScoring.png';
-import "../Master.css";
 import { addOutline, diceOutline } from "ionicons/icons";
 // import { NumericFormat } from 'react-number-format';
+import "../Master.css";
 
 interface PlayProps {
   addGameResultFunc: (r: GameResult) => void;

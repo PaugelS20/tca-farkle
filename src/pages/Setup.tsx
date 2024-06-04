@@ -1,8 +1,6 @@
 import {
   IonContent,
-
   IonPage,
-  IonTitle,
   IonButton,
   IonGrid,
   IonCol,
@@ -87,9 +85,7 @@ export const Setup: React.FC<SetupProps> = ({
 
   return (
     <IonPage>
-      
       <MainHeader/>
-
       <IonContent fullscreen>
         <IonGrid>
           <IonRow>
