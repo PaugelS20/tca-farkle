@@ -96,7 +96,9 @@ export const Home: React.FC<HomeProps> = ({
 												</IonRow>
 												{
 													leaderboardData.map(x => (
-														<IonRow>
+														<IonRow
+															key={x.name}
+														>
 															<IonCol>{x.wins}</IonCol>
 															<IonCol>{x.losses}</IonCol>
 															<IonCol>{x.avg}</IonCol>
