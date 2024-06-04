@@ -86,14 +86,16 @@ export const Setup: React.FC<SetupProps> = ({
   return (
     <IonPage>
       <MainHeader/>
-      <IonContent fullscreen>
+      <IonContent fullscreen={true}>
         <IonGrid>
           <IonRow>
             <IonCol>
               <h2>Setup</h2>
-              <IonText className="ion-padding-bottom">Select who's playing or add someone new</IonText>
+              <IonText className="ion-padding-bottom">
+                Select who's playing or add someone new
+              </IonText>
 
-              <IonList id='IonListandNewPlayerbutton'>
+              <IonList className='ion-padding-vertical' id='NewPlayerIonList'>
                 <IonItem id='newPlayerNameInput'>
                   <IonInput
                     placeholder="Enter Name"
@@ -115,7 +117,9 @@ export const Setup: React.FC<SetupProps> = ({
           </IonRow>
           {
             chosenPlayers.map(x => (
-              <IonRow>
+              <IonRow
+                key={x.name}
+              >
                 <IonCol>
                   <IonList>
                     <IonItem>
